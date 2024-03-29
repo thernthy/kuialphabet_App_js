@@ -23,7 +23,7 @@
 
 
 ## Preview
-
+<!-- 
 <table width="100%">
   <thead>
     <tr>
@@ -83,4 +83,4 @@
       <td width="50%"><img src="/src/assets/screenshots/The-Movie-Box-genre.png"/></td>
     </tr>
   </tbody>
-</table>
+</table> -->
