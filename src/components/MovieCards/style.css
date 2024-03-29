@@ -1,0 +1,17 @@
+.title__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.genres {
+    font-size: 13px;
+}
+
+.btn__view {
+    font-size: 10px;
+}
+
+.rating {
+    font-size: 14px;
+}
