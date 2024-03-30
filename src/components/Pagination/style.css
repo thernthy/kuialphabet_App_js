@@ -1,0 +1,35 @@
+li.pageActive > .page-link{
+    background-color: rgb(4, 146, 75);
+    border: 0;
+   color: white;
+}
+a.page-link{
+    border-radius: 50%;
+    margin: 0 5px;
+}
+li.page-item.disabled{
+    background-color: rgb(232, 213, 9);
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    margin-right: 10px;
+}
+li.page-item.disabled .page-link{
+    border-radius: 0;
+    background-color: transparent;
+    border: 0;
+    color: rgb(4, 146, 75);
+    
+}
+li.page-item.nexitem{
+    background-color: rgb(232, 213, 9);
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    margin-left: 10px;
+
+}
+li.page-item.nexitem .page-link{
+    border-radius: 0;
+    background-color: transparent;
+    border: 0;
+    color: rgb(4, 146, 75);
+}
