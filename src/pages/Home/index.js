@@ -5,26 +5,27 @@ import Pagination from "../../components/Pagination";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import MovieCards from "../../components/MovieCards";
+import { useState } from "react";
 
 
 const Home = () => {
     const { data, isLoading, error, setPage, pageCount, refetch } = useMovies()
-    console.log(data)
+    const [bannerData, setBannerData]  = useState([])
     const renderMovies = () => {
-
         if (isLoading) {
             return <Loading />
         }
-
+        
         if (error) {
             return <ErrorMessage refetch={refetch} />
         }
+      
 
 
-        return data?.map(movie => {
+        return data.data?.map(movie => {
             return (
                 <MovieCards
-                    key={movie.movie_category_id}
+                    key={movie.id}
                     title={movie.title}
                     poster={movie.movei_cover_path}
                     id={movie.id}
@@ -39,7 +40,7 @@ const Home = () => {
 
     return (
         <main>
-            <Carousel />
+            <Carousel  />
             <div className="album py-5 bg-body-tertiary">
                 <div className="container">
                     <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-3">

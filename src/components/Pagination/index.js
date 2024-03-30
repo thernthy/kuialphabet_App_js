@@ -1,33 +1,36 @@
 import ReactPaginate from "react-paginate";
-
+import './style.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowLeft, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Pagination = ({ setPage, pageCount }) => {
 
     const handleClick = (e) => {
         const selectedPage = ++e.selected
         setPage(selectedPage)
+        console.log(e.selected)
     }
 
 
     return (
         <div>
             <ReactPaginate
-                previousLabel={"previous"}
-                nextLabel={"next"}
+                previousLabel={ <FontAwesomeIcon icon={faCircleArrowLeft} />}
+                nextLabel={<FontAwesomeIcon icon={faCircleArrowRight} />}
                 breakLabel={"..."}
                 pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={2}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={3}
                 onPageChange={handleClick}
                 containerClassName={"pagination justify-content-center flex-wrap"}
                 pageClassName={"page-item"}
                 pageLinkClassName={"page-link"}
-                previousClassName={"page-item"}
+                previousClassName={"page-item pr"}
                 previousLinkClassName={"page-link"}
-                nextClassName={"page-item"}
-                nextLinkClassName={"page-link"}
+                nextClassName={"page-item nexitem"}
+                nextLinkClassName={"page-link next"}
                 breakClassName={"page-item"}
                 breakLinkClassName={"page-link"}
-                activeClassName={"active"}
+                activeClassName={"pageActive"}
             />
         </div>
     )

@@ -8,8 +8,7 @@ import { set } from "../../../services/CreateStorage";
 import "./style.css";
 
 const Login = () => {
-
-    const { setLogged, setLogin, logged, login } = useContext(authContext)
+    const { setLogged, setLogin, logged, login, token } = useContext(authContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
@@ -17,7 +16,6 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState('')
     const [invalid, setInvalid] = useState(false)
     const navigate = useNavigate()
-
 
     const getHandler = (setter) => {
         return function handler(e) {
@@ -30,9 +28,9 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const formData = new URLSearchParams();
+            const formData = new URLSearchParams('api/login');
             formData.append("grant_type", "password");
-            formData.append("username", email);
+            formData.append("email", email);
             formData.append("password", password);
 
             const customConfig = {
@@ -50,9 +48,9 @@ const Login = () => {
             } else {
                 setInvalid(true)
             }
-
-            const accessToken = await response.data.access_token
-            const refreshToken = await response.data.refresh_token
+            
+            const accessToken = await response.data.token
+            const refreshToken = await response.data.token
             set('access_token', accessToken)
             set('refresh_token', refreshToken)
 
@@ -60,7 +58,7 @@ const Login = () => {
             setInvalid(true)
             setErrorMessage(error.response.data.message)
         }
-
+        
 
         if (!email) {
             setEmailError('Please enter your email address')

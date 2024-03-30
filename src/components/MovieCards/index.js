@@ -3,12 +3,13 @@ import { FaStar } from "react-icons/fa";
 import "./style.css";
 
 const MovieCards = ({ id, title, poster, genres, year, rating }) => {
+    const src = poster.startsWith('uploads/') ? `https://www.kotv-001.com/${poster}` : poster; // Check if poster starts with "uploads/"
     return (
         <div className="col" key={id}>
             <div className="card border-light shadow-sm">
                 <img
                     className="img-fluid rounded-top"
-                    src={'https://www.kotv-001.com/'+poster}
+                    src={src}
                     alt="Movie poster"
                     style={{height:'200px'}}
                 />

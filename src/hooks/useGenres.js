@@ -15,7 +15,6 @@ export const useGenres = () => {
         const response = await httpClient.get(`${GENRES}`)
         setPageCount(response.data.metadata.page_count)
         return response.data.data
-        console.log(response.data.data)
     }
 
     const onSuccess = (data) => {

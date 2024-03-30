@@ -13,7 +13,7 @@ import './style.css';
 
 const Header = () => {
     const { data } = useContext(genresContext)
-    const { handleModalLogin, handleModalRegister, logged, setLogged } = useContext(authContext)
+    const { handleModalLogin, handleModalRegister, logged, token, setLogged } = useContext(authContext)
 
     const renderGenres = () => {
         return data?.sort((a, b) => a.name.localeCompare(b.name))
@@ -28,6 +28,12 @@ const Header = () => {
                     </Link>
                 );
             })
+    }
+    
+    const handleLogout = () => {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
+        setLogged(false)
     }
 
     return (
@@ -81,7 +87,7 @@ const Header = () => {
                                     </Link>
                                     <li><hr className="dropdown-divider" /></li>
                                     <Link to="/" className="text-dark text-decoration-none">
-                                        <li className="dropdown-item" onClick={() => setLogged(false)}>
+                                        <li className="dropdown-item" onClick={() => handleLogout() }>
                                             <span>
                                                 <FiLogOut size='20' />
                                             </span>

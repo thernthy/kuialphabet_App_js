@@ -5,10 +5,10 @@ export const authContext = createContext();
 const AuthProvider = ({ children }) => {
     const [login, setLogin] = useState(false)
     const [register, setRegister] = useState(false)
-    const [logged, setLogged] = useState(false)
-
+    const [token, _setToken] = useState(localStorage.getItem('access_token'));
+    const [logged, setLogged] = useState(token?true:false)
     const handleModalLogin = () => {
-        setLogin(true)
+            setLogin(true)
     }
 
     const handleModalRegister = () => {
@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
         <authContext.Provider
             value={{
                 login,
+                token,
                 setLogin,
                 setRegister,
                 register,

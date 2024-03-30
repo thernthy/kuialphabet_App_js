@@ -2,12 +2,14 @@ import { MdHeight } from "react-icons/md";
 import TopGonImg from "../../assets/comic_banner1.jpg";
 import MarloweImg from "../../assets/Marlowe.jpg";
 import Midway from "../../assets/midway-movie.jpg";
+import { useEffect } from "react";
+const Carousel = ({bannerdata}) => {
 
 
-const Carousel = () => {
     return (
         <div id="myCarousel" className="carousel slide pointer-event" data-bs-ride="carousel">
             <div className="carousel-indicators">
+                
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-label="Slide 1" aria-current="true"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
