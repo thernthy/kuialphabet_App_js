@@ -9,7 +9,7 @@ import MovieCards from "../../components/MovieCards";
 
 const Home = () => {
     const { data, isLoading, error, setPage, pageCount, refetch } = useMovies()
-
+    console.log(data)
     const renderMovies = () => {
 
         if (isLoading) {
@@ -24,12 +24,12 @@ const Home = () => {
         return data?.map(movie => {
             return (
                 <MovieCards
-                    key={movie.id}
+                    key={movie.movie_category_id}
                     title={movie.title}
-                    poster={movie.poster}
+                    poster={movie.movei_cover_path}
                     id={movie.id}
                     genres={movie?.genres?.join(', ')}
-                    year={movie.year}
+                    year={movie.created_at}
                     rating={movie.imdb_rating}
                 />
             );

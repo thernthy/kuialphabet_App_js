@@ -10,12 +10,15 @@ export const useMovies = () => {
 
 
     const fetchMovies = async (page) => {
-        const response = await httpClient.get(`${MOVIES}?page=${page}`)
-        return response.data.data
+        const response = await httpClient.get(`${MOVIES}`)
+        //const response = await httpClient.get(`${MOVIES}?page=${page}`)
+        //console.log(response)
+        return response.data
     }
 
     const onSuccess = (data) => {
-        console.log("fetch succeeded!", data)
+        console.log(data)
+        console.log("fetch succeeded!", data.data)
     }
 
     const onError = (error) => {

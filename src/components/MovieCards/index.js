@@ -8,7 +8,7 @@ const MovieCards = ({ id, title, poster, genres, year, rating }) => {
             <div className="card border-light shadow-sm">
                 <img
                     className="img-fluid rounded-top"
-                    src={poster}
+                    src={'https://www.kotv-001.com/'+poster}
                     alt="Movie poster"
                     style={{height:'200px'}}
                 />

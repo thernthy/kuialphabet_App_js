@@ -9,7 +9,6 @@ import "./style.css";
 
 const Genre = () => {
     const {data, isLoading, error, setPage, pageCount, refetch} = useGenres()
-
     const renderGenre = () => {
 
         if (isLoading) {
