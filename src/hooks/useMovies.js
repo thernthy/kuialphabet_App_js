@@ -32,7 +32,7 @@ export const useMovies = () => {
     const onError = (error) => {
         console.log("fetch failed!", error)
     }
-
+    
     const { data, isLoading, error, isError, refetch } = useQuery(
         {
             queryKey: ["movies", page],
