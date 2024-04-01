@@ -1,8 +1,9 @@
 //export const API = '/api/v1';
-export const API = '/api/comic';
-export const GENRES = `${API}?token=.xLU2hPgsarS6&filter=all`;
-export const MOVIES = `${API}?`;
-export const PROFILE = `${API}?token=.xLU2hPgsarS6&filter=all`;
+export const API = '/comic';
+export const GENRES = `${API}`;
+export const MOVIES = `${API}`;
+export const PROFILE = `${API}`;
 export const LOGIN = 'api/login';
-export const REGISTER = `api/singup`;
-export const ADDMOVIE = `${API}?token=.xLU2hPgsarS6&filter=all`;
+export const REGISTER = `${API}/register`;
+export const ADDMOVIE = `${API}`;
+export const Api_header_key = process.env.REACT_APP_API_KEY;

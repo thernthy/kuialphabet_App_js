@@ -3,7 +3,7 @@ import TopGonImg from "../../assets/comic_banner1.jpg";
 import MarloweImg from "../../assets/Marlowe.jpg";
 import Midway from "../../assets/midway-movie.jpg";
 import { useEffect } from "react";
-const Carousel = ({bannerdata}) => {
+const Carousel = () => {
 
 
     return (

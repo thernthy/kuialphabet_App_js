@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const httpClient = axios.create({
-  baseURL: `http://localhost:8000`,
+  baseURL: `https://www.kotv-001.com`,
 })
 const qs = require('qs');
 let data = qs.stringify({

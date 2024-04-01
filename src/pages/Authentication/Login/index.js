@@ -2,9 +2,8 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../../contexts/auth-provider";
 import { httpClient } from "../../../services/Http";
-import { LOGIN } from "../../../config/api-endpoints";
+import { Api_header_key, LOGIN } from "../../../config/api-endpoints";
 import { set } from "../../../services/CreateStorage";
-
 import "./style.css";
 
 const Login = () => {
@@ -23,7 +22,6 @@ const Login = () => {
         }
     }
 
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
@@ -35,7 +33,8 @@ const Login = () => {
 
             const customConfig = {
                 headers: {
-                    "content-type": "application/x-www-form-urlencoded"
+                    "content-type": "application/x-www-form-urlencoded",
+                    "X-Api-Key" : Api_header_key
                 }
             }
 

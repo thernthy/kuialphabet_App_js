@@ -7,7 +7,11 @@ export const useMovieDetail = () => {
     const { id } = useParams()
 
     const fetchMovieDetail = async (id) => {
-        const response = await httpClient.get(`${MOVIES}`)
+        const response = await httpClient.get(`${MOVIES}?token=.thenthy&filter=all`, {
+            headers: {
+                'X-API-Key': '12345678910' 
+            },
+        })
         //const response = await httpClient.get(`${MOVIES}/${id}`)
         return response.data
     }

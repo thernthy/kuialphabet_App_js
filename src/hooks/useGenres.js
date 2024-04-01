@@ -12,7 +12,11 @@ export const useGenres = () => {
 
     const fetchGenres = async (id, page) => {
         //const response = await httpClient.get(`${GENRES}/${id}/movies?page=${page}`)
-        const response = await httpClient.get(`${GENRES}`)
+        const response = await httpClient.get(`${GENRES}?token=.thenthy&filter=all`, {
+            headers: {
+                'X-API-Key': '12345678910' 
+            },
+        })
         setPageCount(response.data.metadata.page_count)
         return response.data.data
     }
