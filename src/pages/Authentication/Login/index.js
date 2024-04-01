@@ -26,15 +26,20 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const formData = new URLSearchParams('api/login');
+            const formData = new URLSearchParams();
             formData.append("grant_type", "password");
             formData.append("email", email);
             formData.append("password", password);
-
+            const { data: { csrf_token } } = await httpClient.get('/csrf-cookie', {
+                headers: {
+                    "X-Api-Key" : Api_header_key,
+                }
+            });
+            console.log(csrf_token);
             const customConfig = {
                 headers: {
-                    "content-type": "application/x-www-form-urlencoded",
-                    "X-Api-Key" : Api_header_key
+                    "X-Api-Key" : Api_header_key,
+                    'X-CSRF-TOKEN': csrf_token
                 }
             }
 
