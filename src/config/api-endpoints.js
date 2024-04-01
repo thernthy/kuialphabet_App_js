@@ -4,5 +4,5 @@ export const GENRES = `${API}?token=.xLU2hPgsarS6&filter=all`;
 export const MOVIES = `${API}?`;
 export const PROFILE = `${API}?token=.xLU2hPgsarS6&filter=all`;
 export const LOGIN = 'api/login';
-export const REGISTER = `${API}/register`;
+export const REGISTER = `api/singup`;
 export const ADDMOVIE = `${API}?token=.xLU2hPgsarS6&filter=all`;

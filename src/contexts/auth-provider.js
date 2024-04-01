@@ -7,6 +7,7 @@ const AuthProvider = ({ children }) => {
     const [register, setRegister] = useState(false)
     const [token, _setToken] = useState(localStorage.getItem('access_token'));
     const [logged, setLogged] = useState(token?true:false)
+    
     const handleModalLogin = () => {
             setLogin(true)
     }
