@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import { httpClient } from "../../../services/Http";
 import { REGISTER } from "../../../config/api-endpoints";
 import { authContext } from "../../../contexts/auth-provider";
-
 import "./style.css";
-
 const Register = () => {
-
-    const { setRegister, register } = useContext(authContext)
+    const { setRegister, register,  } = useContext(authContext)
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -21,7 +18,6 @@ const Register = () => {
     const [submitted, setSubmitted] = useState(false);
     const [registerError, setRegisterError] = useState(false);
 
-
     const getHandler = (setter) => {
         return function handler(e) {
             setter(e.target.value)
@@ -30,6 +26,7 @@ const Register = () => {
 
 
     const handleFormSubmit = async (e) => {
+        const password_confirmation = password
         e.preventDefault();
 
         try {
@@ -37,15 +34,20 @@ const Register = () => {
                 name,
                 email,
                 password,
+                password_confirmation
             }
             const response = await httpClient.post(REGISTER, payload)
             console.log('response', response.data);
-            setSubmitted(true)
-            setRegisterError(false)
+            if(response.data.token && response.data.user){
+                setSubmitted(true)
+                setRegisterError(false)
+                setTimeout((localStorage.setItem({'refresh_token': response.data.token, 'access_token':response.data.token})),100)
+            }
         } catch (error) {
+            console.log(error.response.data.message)
             setSubmitted(false)
             setRegisterError(true)
-            setError(error.response.data.errors)
+            setEmailError(error.response.data.message)
         }
 
         if (!name) {
@@ -87,12 +89,12 @@ const Register = () => {
 
     return (
         <form className="p-4 p-md-5" onSubmit={handleFormSubmit}>
-            {submitted && allValid && (
+            {/* {submitted && allValid && (
                 <div className="alert alert-success text-center">Success! Thank you for registering</div>
-            )}
+            )} */}
             {registerError && (
                 <div className="alert alert-danger text-center messages">{error}</div>
-            )}
+            )} 
             <h3 className="display-4 fw-bold fs-2 lh-1 text-body-emphasis mb-5 text-center">Create an account</h3>
             <div className="form-floating mb-3">
                 <input

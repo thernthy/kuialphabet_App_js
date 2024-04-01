@@ -7,7 +7,7 @@ export const useSearchMovies = () => {
     const [search, setSearch] = useState("");
 
     const fetchMovies = async (search) => {
-        const response = await httpClient.get(`${MOVIES}?page=1&token=.thenthy&search=${search}`, {
+        const response = await httpClient.get(`${MOVIES}?token=.thenthy&search=${search}`, {
             headers: {
                 'X-API-Key': process.env.REACT_APP_API_KEY 
             },
