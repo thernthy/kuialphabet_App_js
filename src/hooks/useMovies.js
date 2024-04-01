@@ -3,17 +3,26 @@ import { useQuery } from "@tanstack/react-query";
 import { httpClient } from "../services/Http";
 import { MOVIES } from "../config/api-endpoints";
 
+console.log(process.env.REACT_APP_API_KEY);
 
 export const useMovies = () => {
-    const [page, setPage] = useState(6)
+    const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(25)
-
     const fetchMovies = async (page) => {
-        //const response = await httpClient.get(`${MOVIES}`)
-        const response = await httpClient.get(`${MOVIES}?page=${page}&token=.xLU2hPgsarS6&filter=all`)
-        //console.log(response)
-        setPageCount(response.data.last_page)
-        return response.data
+        try {
+            const response = await httpClient.get(`${MOVIES}?page=${page}&token=.thenthy&filter=all`, {
+                headers: {
+                    'X-API-Key' : process.env.REACT_APP_API_KEY 
+                },
+            })
+
+            setPageCount(response.data.last_page)
+            return response.data;
+          } catch (error) {
+            // Handle errors here
+            console.error('Error:', error);
+            throw error;
+          }
     }
 
     const onSuccess = (data) => {

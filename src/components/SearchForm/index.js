@@ -21,6 +21,7 @@ const SearchForm = () => {
             setCancelBnt(false)
         }
     }
+
     const handleCancel = () => {
         seachValue.current.value = '';
         setCancelBnt(false);
@@ -30,8 +31,10 @@ const SearchForm = () => {
         if (!filteredData || filteredData?.length === 0) {
             return <p className="text-center text-white fs-5 fw-semibold m-auto p-5">No results found for "{search}"</p>
         }
+        
 
         return filteredData?.map((result) => (
+            
             <Link
                 to={`/moviedetails/${result.id}`}
                 key={result.id}
@@ -43,7 +46,7 @@ const SearchForm = () => {
                             {result.poster &&
                                 <img
                                     className="card-img img-cover"
-                                    src={result.poster}
+                                    src={(result.poster.startsWith('uploads/'))?process.env.REACT_APP_BASED_URL+result.poster:result.poster}
                                     alt={result.title}
                                 />
                             }
@@ -52,6 +55,7 @@ const SearchForm = () => {
                             <div className="card-body">
                                 <h6 className="card-title">{result.title} ({result.year})</h6>
                                 <p className="card-text fs-6">{result?.genres?.join(', ')}</p>
+                            
                             </div>
                         </div>
                     </div>
