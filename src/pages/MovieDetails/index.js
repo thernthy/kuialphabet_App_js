@@ -2,11 +2,13 @@ import { useMovieDetail } from "../../hooks/useMovieDetail";
 import MovieItem from "../../components/MovieItem";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
-
+import { useEffect} from "react";
 
 const MovieDetails = () => {
     const { data, isLoading, error, refetch } = useMovieDetail()
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const renderDetails = () => {
 
         if (isLoading) {
@@ -46,7 +48,7 @@ const MovieDetails = () => {
 
     return (
         <div className="min-vh-100">
-            <div className="container">
+            <div className="container" style={{paddingTop:"8rem"}}>
                 <div className="row">
                     {renderDetails()}
                 </div>

@@ -11,6 +11,7 @@ import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import NotFound from '../components/NotFound'
 import ViewMovie from "../pages/viewMovie";
+import ViewCategory from "../pages/viewcategory";
 
 const AllRoutes = () => {
     return (
@@ -46,6 +47,11 @@ const AllRoutes = () => {
                 exact
                 path={paths.GENRE}
                 element={<Genre />}
+            />
+            <Route
+                exact
+                path={paths.FILTERCATEGORY}
+                element={<ViewCategory />}
             />
             <Route
                 exact

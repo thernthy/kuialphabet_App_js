@@ -1,4 +1,3 @@
-import { useGenres } from "../../hooks/useGenres";
 
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -6,11 +5,11 @@ import Pagination from "../../components/Pagination";
 import MovieCards from "../../components/MovieCards";
 
 import "./style.css";
+import { useCategory } from "../../hooks/useCategory";
 
-const Genre = () => {
-    const {data, isLoading, error, setPage, pageCount, refetch} = useGenres()
+const ViewCategory = () => {
+    const {data, isLoading, error, setPage, pageCount, refetch} = useCategory()
     const renderGenre = () => {
-
         if (isLoading) {
             return <Loading />
         }
@@ -18,7 +17,7 @@ const Genre = () => {
         if (error) {
             return <ErrorMessage refetch={refetch} />
         }
-        return data?.map(movie => {
+        return data.data?.map(movie => {
             return (
                 <MovieCards
                     key={movie.comic_title_id}
@@ -52,4 +51,4 @@ const Genre = () => {
     )
 }
 
-export default Genre
+export default ViewCategory

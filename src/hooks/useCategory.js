@@ -5,20 +5,19 @@ import { httpClient } from "../services/Http";
 import { GENRES } from "../config/api-endpoints";
 
 
-export const useGenres = () => {
+export const useCategory = () => {
     const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState()
     const { id } = useParams()
 
     const fetchGenres = async (id, page) => {
-
         //const response = await httpClient.get(`${GENRES}/${id}/movies?page=${page}`)
-        const response = await httpClient.get(`${GENRES}/completed?page=${page}`, {
+        const response = await httpClient.get(`${GENRES}/get?requestCategory=${id}&page=${page}`, {
             headers: {
                 'X-API-Key' : process.env.REACT_APP_API_KEY
             },
         })
-        setPageCount(response.data.last_page)
+        setPageCount(response.data.data.last_page)
         return response.data.data
     }
 
@@ -33,13 +32,12 @@ export const useGenres = () => {
 
     const { data, isLoading, error, isError, refetch } = useQuery(
         {
-            queryKey: ["genres", id, page],
+            queryKey: ["category_id", id],
             queryFn: () => fetchGenres(id, page),
             staleTime: 1000,
             onSuccess: onSuccess,
             onError: onError,
         }
     )
-
     return {data, isLoading, error, setPage, pageCount, refetch}
 }

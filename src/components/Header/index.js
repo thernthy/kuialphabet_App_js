@@ -14,17 +14,17 @@ import './style.css';
 const Header = () => {
     const { data } = useContext(genresContext)
     const { handleModalLogin, handleModalRegister, logged, token, setLogged } = useContext(authContext)
-
     const renderGenres = () => {
+    
         return data?.sort((a, b) => a.name.localeCompare(b.name))
-            .map(genre => {
+            .map(category => {
                 return (
                     <Link
                         className="text-decoration-none text-primary"
-                        to={`/genre/${genre.id}-${genre.name}`}
-                        key={genre.id}
+                        to={`/category/${category.id}-${category.name}`}
+                        key={category.id}
                     >
-                        <li className="dropdown-item" key={genre.id}>{genre.name}</li>
+                        <li className="dropdown-item" key={category.id}>{category.name}</li>
                     </Link>
                 );
             })
@@ -37,7 +37,7 @@ const Header = () => {
     }
 
     return (
-        <header className="p-3 text-bg-success">
+        <header className="p-3 text-bg-success" style={{width:"100%", position:"fixed", zIndex:"1000"}}>
             <div className="container-fluid">
                 <div className="d-flex flex-wrap align-items-end justify-content-center justify-content-lg-between">
                     <Link to="/" className="text-white text-decoration-none mb-lg-0 mb-md-2">
@@ -51,25 +51,25 @@ const Header = () => {
                         <Link to="/completed" className="text-white text-decoration-none">
                             <li className="nav-item px-3">완결웹툰</li>
                         </Link>
-                        <Link to="/comic" className="text-white text-decoration-none">
-                            <li className="nav-item px-3">코믹스</li>
-                        </Link>
-                        <Link to="https://www.kotv-001.com" className="text-white text-decoration-none">
-                            <li className="nav-item px-3">영화</li>
-                        </Link>
-                        {/* <li className="nav-item px-3 dropdown">
-                            <span className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Genres</span>
+                         <li className="nav-item px-3 dropdown" style={{cursor:"pointer"}}>
+                            <span className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">필터링 기준</span>
                             <ul className="dropdown-menu genres__box">
                                 {renderGenres()}
                             </ul>
-                        </li> */}
+                        </li>
+                        {/* <Link to="/comic" className="text-white text-decoration-none">
+                            <li className="nav-item px-3">코믹스</li>
+                        </Link> */}
+                        <Link to="https://www.kotv-001.com" className="text-white text-decoration-none">
+                            <li className="nav-item px-3">영화</li>
+                        </Link>
                     </ul>
                     <div className="col-12 col-lg-6 mb-md-2 mb-lg-0 justify-content-center">
                         {logged ? (
                             <div className="d-flex row dropdown text-white">
                                 <span className="dropdown-toggle fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">My Account</span>
                                 <ul className="dropdown-menu text-small text-white">
-                                    <Link to="/profile" className="text-dark text-decoration-none">
+                                    {/* <Link to="/profile" className="text-dark text-decoration-none">
                                         <li className="dropdown-item">
                                             <span>
                                                 <FaRegUser size='20' />
@@ -84,7 +84,7 @@ const Header = () => {
                                             </span>
                                             <span className="ps-2 fw-semibold">Add Movie</span>
                                         </li>
-                                    </Link>
+                                    </Link> */}
                                     <li><hr className="dropdown-divider" /></li>
                                     <Link to="/" className="text-dark text-decoration-none">
                                         <li className="dropdown-item" onClick={() => handleLogout() }>

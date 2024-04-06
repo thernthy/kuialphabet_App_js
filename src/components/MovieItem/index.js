@@ -54,28 +54,30 @@ const MovieItem = ({
                             <div className="col-12 d-flex justify-content-end px-5">
                                 <button className="btn btn-warning mx-3 text-white" style={{width:'150px'}}>서표</button>
                                 <button className="btn btn-success mx-3 text-white" style={{width:'150px'}}>
-                                    <Link to={`/moviedetails/view/${id}/${title}/${part}`}>읽다</Link>
+                                    <Link to={`/moviedetails/view/${id}/${title}/${comic_ep.length}/${part}`}>읽다</Link>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className="d-flex row h-100 w-100 mt-5 px-5 py-4">
+                    <div className="d-flex flex-wrap h-100 w-100 mt-5 px-5 py-4">
                             {comic_ep && comic_ep?.map((item, index) => (
-                                <div key={index} className="d-flex " style={{  marginBottom:'10px'}}>
-                                    <b className="px-4">{index + 1}</b>
-                                    <img
-                                        className=""
-                                        src={poster.startsWith('images/')?`https://www.kotv-001.com/${poster}`: poster}
-                                        alt="movie poster"
-                                        style={{height:'100px', width:'100px'}}
-                                    />
-                                    <div className="px-2">
-                                    <h4>{item.title} <span className="text-success font-sm">{formatDate(item.created_at)}</span></h4>
-                                        <p>
-                                            {released} . <span className="text-success">{runtime}</span>
-                                        </p>
+                                <Link to={`/moviedetails/view/${id}/${title}/${comic_ep.length}/${item.comic_ep}`}>
+                                    <div key={index} className="d-flex " style={{  marginBottom:'10px'}}>
+                                        <b className="px-4">{index + 1}</b>
+                                        <img
+                                            className=""
+                                            src={poster.startsWith('images/')?`https://www.kotv-001.com/${poster}`: poster}
+                                            alt="movie poster"
+                                            style={{height:'100px', width:'100px'}}
+                                        />
+                                        <div className="px-2">
+                                        <h4>{item.title} <span className="text-success font-sm">{formatDate(item.created_at)}</span></h4>
+                                            <p>
+                                                {released} . <span className="text-success">{runtime}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                 </div>
             </div>

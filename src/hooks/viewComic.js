@@ -7,9 +7,10 @@ export const useViewComic = () => {
     const { id } = useParams()
     const { title } = useParams()
     const { ep } = useParams()
+    const { totalPart } = useParams()
     const fetchMovieDetail = async (id, title, ep) => {
         
-        const response = await httpClient.get(`${MOVIES}/view?t=${title}&id=${id}&ep=${ep}`, {
+        const response = await httpClient.get(`${MOVIES}/view?t=${title}&id=${id}&ep=${ep}&mp=${totalPart}`, {
             headers: {
                 'X-API-Key' : process.env.REACT_APP_API_KEY
             },
@@ -18,7 +19,7 @@ export const useViewComic = () => {
     }
 
 
-    const { data, isLoading, error, refetch } = useQuery(
+    const { data, isLoading, error, refetch} = useQuery(
         {
             queryKey: ["view-comic", id],
             queryFn: () => fetchMovieDetail(id, title, ep),
@@ -26,5 +27,5 @@ export const useViewComic = () => {
         }
     )
 
-    return { data, isLoading, error, refetch }
+    return { data, isLoading, error, refetch}
 }

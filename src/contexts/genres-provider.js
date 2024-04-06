@@ -9,12 +9,16 @@ export const genresContext = createContext();
 const GenresProvider = ({ children }) => {
 
     const fetchGenres = async () => {
-        const response = await httpClient.get(GENRES)
+        const response = await httpClient.get(`${GENRES}/get?category=all`, {
+            headers:{
+                'X-API-Key' : process.env.REACT_APP_API_KEY 
+            }
+        })
         return response.data
     }
 
     const { data } = useQuery({
-        queryKey: ["genres"],
+        queryKey: ["category"],
         queryFn: fetchGenres,
         staleTime: 1000,
     });
