@@ -16,6 +16,7 @@ const ViewMovie = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    
     const renderDetails = () => {
         if (isLoading) {
             return <Loading />
