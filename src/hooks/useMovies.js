@@ -4,7 +4,7 @@ import { httpClient } from "../services/Http";
 import { MOVIES } from "../config/api-endpoints";
 
 export const useMovies = () => {
-    const [page, setPage] = useState(6)
+    const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(25)
     const fetchMovies = async (page) => {
         try {

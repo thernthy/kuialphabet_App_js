@@ -10,6 +10,7 @@ import AuthLayout from "../layouts/authLayout";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import NotFound from '../components/NotFound'
+import ViewMovie from "../pages/viewMovie";
 
 const AllRoutes = () => {
     return (
@@ -35,6 +36,11 @@ const AllRoutes = () => {
                 exact
                 path={paths.MOVIEDETAILS}
                 element={<MovieDetails />}
+            />
+            <Route
+                exact
+                path={paths.VIEWMOVIES}
+                element={<ViewMovie />}
             />
             <Route
                 exact

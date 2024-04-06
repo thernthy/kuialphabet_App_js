@@ -5,6 +5,8 @@ import { httpClient } from "../../../services/Http";
 import { Api_header_key, LOGIN } from "../../../config/api-endpoints";
 import { set } from "../../../services/CreateStorage";
 import "./style.css";
+import AuthenticationHttp from "../../../services/Http/auth";
+import { dataTagSymbol } from "@tanstack/react-query";
 
 const Login = () => {
     const { setLogged, setLogin, logged, login, token } = useContext(authContext)
@@ -21,46 +23,47 @@ const Login = () => {
             setter(e.target.value)
         }
     }
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
         try {
-            const formData = new URLSearchParams();
-            formData.append("grant_type", "password");
-            formData.append("email", email);
-            formData.append("password", password);
-            const { data: { csrf_token } } = await httpClient.get('/csrf-cookie', {
-                headers: {
-                    "X-Api-Key" : Api_header_key,
+            // const formData = new URLSearchParams();
+            // // formData.append("grant_type", "password");
+            // // formData.append("email", email);
+            // // formData.append("password", password);
+            // // formData.append("_token", "base64:8LiE4ybINYX2HjOzL9j9QhW8vM0+ejOkBaxUNBmyxRk=");
+            // // console.log(formData)
+            const response = await httpClient.get(LOGIN+`?t="base64:8LiE4ybINYX2HjOzL9j9QhW8vM0+ejOkBaxUNBmyxRk="&email=${email}&password=${password}`,{
+                headers:{
+                    'X-API-Key' : process.env.REACT_APP_API_KEY
                 }
-            });
-            console.log(csrf_token);
-            const customConfig = {
-                headers: {
-                    "X-Api-Key" : Api_header_key,
-                    'X-CSRF-TOKEN': csrf_token
-                }
-            }
-
-            const response = await httpClient.post(LOGIN, formData, customConfig)
-
+            })
             if (response.status === 200) {
                 setLogged(true)
                 setLogin(false)
                 setInvalid(false)
+                setTimeout(() => {
+                    localStorage.setItem('refresh_token', response.data.token);
+                    localStorage.setItem('access_token', response.data.token);
+                }, 100);
             } else {
                 setInvalid(true)
             }
-            
-            const accessToken = await response.data.token
-            const refreshToken = await response.data.token
-            set('access_token', accessToken)
-            set('refresh_token', refreshToken)
-
         } catch (error) {
+            const response = error.response;
             setInvalid(true)
-            setErrorMessage(error.response.data.message)
+                if(response && response.status == 422){
+                    if(response.data.errors.password){
+                        setErrorMessage(response.data.errors.password)
+                    }else{
+                        setErrorMessage(response.data.errors.email)
+                    }
+                }
+                if(response && response.status == 401){
+                    setErrorMessage(response.data.message)
+                }
+                if(response && response.status == 504 || response.status == 500){
+                    setEmailError("server oops check your network angain!")
+                }
         }
         
 

@@ -46,7 +46,7 @@ const SearchForm = () => {
                             {result.poster &&
                                 <img
                                     className="card-img img-cover"
-                                    src={(result.poster.startsWith('uploads/'))?process.env.REACT_APP_BASED_URL+result.poster:result.poster}
+                                    src={(result.poster.startsWith('/'))?process.env.REACT_APP_BASED_URL+result.poster:result.poster}
                                     alt={result.title}
                                 />
                             }

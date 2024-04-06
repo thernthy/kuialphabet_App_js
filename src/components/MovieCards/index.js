@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { formatDate2 } from "../dateFormating/DateFormating";
 import "./style.css";
 
 const MovieCards = ({ id, title, poster, genres, year, rating }) => {
-    const src = poster.startsWith('uploads/') ? `https://www.kotv-001.com/${poster}` : poster; // Check if poster starts with "uploads/"
+    const src = poster.startsWith('images/') ? `https://www.kotv-001.com/${poster}` : poster; // Check if poster starts with "uploads/"
     return (
         <div className="col" key={id}>
             <div className="card border-light shadow-sm">
@@ -14,12 +15,12 @@ const MovieCards = ({ id, title, poster, genres, year, rating }) => {
                     style={{height:'200px'}}
                 />
                 <div className="card-body">
-                    <p className="card-text title__text fw-semibold">{title} ({year})</p>
+                    <p className="card-text title__text fw-semibold">{title} {formatDate2(year, 'time')}</p>
                     {/* <p className="card-text text-secondary genres">{genres}</p> */}
                     <div className="d-flex justify-content-between align-items-center">
                         <Link
                             className="text-decoration-none text-dark"
-                            to={`/moviedetails/${id}`}
+                            to={`/moviedetails/${id}/${title}/1/`}
                             key={id}
                         >
                             <button

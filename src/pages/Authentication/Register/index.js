@@ -1,11 +1,12 @@
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate, redirect } from "react-router-dom";
 import { httpClient } from "../../../services/Http";
 import { REGISTER } from "../../../config/api-endpoints";
 import { authContext } from "../../../contexts/auth-provider";
 import "./style.css";
 const Register = () => {
-    const { setRegister, register,  } = useContext(authContext)
+    const navigate = useNavigate();
+    const { setRegister, register, setLogged, setLogin, logged, login, token} = useContext(authContext)
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -17,13 +18,11 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [submitted, setSubmitted] = useState(false);
     const [registerError, setRegisterError] = useState(false);
-
     const getHandler = (setter) => {
         return function handler(e) {
             setter(e.target.value)
         }
     }
-
 
     const handleFormSubmit = async (e) => {
         const password_confirmation = password
@@ -36,18 +35,31 @@ const Register = () => {
                 password,
                 password_confirmation
             }
-            const response = await httpClient.post(REGISTER, payload)
-            console.log('response', response.data);
+            const response = await httpClient.get(REGISTER + `?name=${payload.name}
+                &email=${payload.email}
+                &password=${payload.password}
+                &password_confirmation=${payload.password_confirmation}`,{
+                    headers:{
+                            'X-API-Key' : process.env.REACT_APP_API_KEY
+                        }
+                    })
+            console.log(response.data)
             if(response.data.token && response.data.user){
-                setSubmitted(true)
-                setRegisterError(false)
-                setTimeout((localStorage.setItem({'refresh_token': response.data.token, 'access_token':response.data.token})),100)
+                    setSubmitted(true)
+                    setTimeout(() => {
+                        localStorage.setItem('refresh_token', response.data.token);
+                        localStorage.setItem('access_token', response.data.token);
+                    }, 100);
+
+                    setLogged(true)
+                    setRegisterError(false)
             }
+
         } catch (error) {
-            console.log(error.response.data.message)
+            // console.log(error.response.data.message)
             setSubmitted(false)
             setRegisterError(true)
-            setEmailError(error.response.data.message)
+            setEmailError(error.response.data)
         }
 
         if (!name) {

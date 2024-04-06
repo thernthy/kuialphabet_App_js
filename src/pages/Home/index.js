@@ -20,15 +20,13 @@ const Home = () => {
             return <ErrorMessage refetch={refetch} />
         }
       
-
-
         return data.data?.map(movie => {
             return (
                 <MovieCards
-                    key={movie.id}
+                    key={movie.comic_title_id}
                     title={movie.title}
-                    poster={movie.movei_cover_path}
-                    id={movie.id}
+                    poster={movie.photo_cover_path}
+                    id={movie.comic_title_id}
                     genres={movie?.genres?.join(', ')}
                     year={movie.created_at}
                     rating={movie.imdb_rating}

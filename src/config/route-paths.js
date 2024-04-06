@@ -1,7 +1,8 @@
 export const HOME = '/';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
-export const MOVIEDETAILS = '/moviedetails/:id';
+export const MOVIEDETAILS = '/moviedetails/:id/:title/:ep';
+export const VIEWMOVIES = '/moviedetails/:view/:id/:title/:ep';
 export const GENRE = '/genre/:id';
 export const ADDMOVIE = '/newmovie';
 export const PROFILE = '/profile';

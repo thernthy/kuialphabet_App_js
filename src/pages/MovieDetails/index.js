@@ -1,5 +1,4 @@
 import { useMovieDetail } from "../../hooks/useMovieDetail";
-
 import MovieItem from "../../components/MovieItem";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -20,10 +19,14 @@ const MovieDetails = () => {
 
         return (
             <MovieItem
-                key={data?.id}
-                title={data?.title}
-                poster={data?.poster}
-                year={data?.year}
+                key={data.targetData?.comic_title_id}
+                id={data.targetData?.comic_title_id}
+                title={data.targetData?.title}
+                part={data.targetData?.comic_ep}
+                poster={data.targetData?.photo_cover_path}
+                created_at={data.targetData?.created_at}
+                dcr={data.targetData?.comic_dcr}
+                comic_ep={data?.comicEpData}
                 released={data?.released}
                 runtime={data?.runtime}
                 genres={data?.genres?.join(', ')}
