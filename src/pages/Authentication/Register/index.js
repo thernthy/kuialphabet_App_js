@@ -4,6 +4,8 @@ import { httpClient } from "../../../services/Http";
 import { REGISTER } from "../../../config/api-endpoints";
 import { authContext } from "../../../contexts/auth-provider";
 import "./style.css";
+import { Buttonbg } from "../../../template/button";
+import { colors } from "../../../template/color";
 const Register = () => {
     const navigate = useNavigate();
     const { setRegister, register, setLogged, setLogin, logged, login, token} = useContext(authContext)
@@ -43,7 +45,6 @@ const Register = () => {
                             'X-API-Key' : process.env.REACT_APP_API_KEY
                         }
                     })
-            console.log(response.data)
             if(response.data.token && response.data.user){
                     setSubmitted(true)
                     setTimeout(() => {
@@ -107,7 +108,7 @@ const Register = () => {
             {registerError && (
                 <div className="alert alert-danger text-center messages">{error}</div>
             )} 
-            <h3 className="display-4 fw-bold fs-2 lh-1 text-body-emphasis mb-5 text-center">Create an account</h3>
+            <h3 className="display-4 fw-bold fs-2 lh-1 text-body-emphasis mb-5 text-center" style={{color:colors.text_lime_400}}>계정 만들기</h3>
             <div className="form-floating mb-3">
                 <input
                     type="text"
@@ -118,7 +119,7 @@ const Register = () => {
                     value={name}
                     onChange={getHandler(setName)}
                 />
-                <label htmlFor="registerUsername">Name</label>
+                <label htmlFor="registerUsername">이름</label>
                 {nameError && <p className="text-danger messages">{nameError}</p>}
             </div>
             <div className="form-floating mb-3">
@@ -131,7 +132,7 @@ const Register = () => {
                     value={email}
                     onChange={getHandler(setEmail)}
                 />
-                <label htmlFor="registerEmail">Email address</label>
+                <label htmlFor="registerEmail">이메일 주소</label>
                 {emailError && <p className="text-danger messages">{emailError}</p>}
             </div>
             <div className="form-floating mb-3">
@@ -144,7 +145,7 @@ const Register = () => {
                     value={password}
                     onChange={getHandler(setPassword)}
                 />
-                <label htmlFor="registerPassword">Password</label>
+                <label htmlFor="registerPassword">비밀번호</label>
                 {passwordError && <p className="text-danger messages">{passwordError}</p>}
                 <div className="checkbox">
                     <input
@@ -154,18 +155,19 @@ const Register = () => {
                         className="checkbox me-2 mt-3"
                         onClick={() => setShowPassword(!showPassword)}
                     />
-                    <label htmlFor="show">Show password</label>
+                    <label htmlFor="show">비밀번호 표시</label>
                 </div>
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit" value="submit">Sign up</button>
+            <button className="w-100 btn btn-lg" style={{backgroundColor:Buttonbg.bg_lime_500}} type="submit" value="submit">노래하다</button>
             <hr className="my-4" />
             <div className="d-flex justify-content-start align-items-center mt-4">
                 <span className="fw-normal">
                     Already have an account?
                     <Link
-                        className="text-decoration-none text-primary"
+                        className="text-decoration-none "
                         to="/login"
                         onClick={() => setRegister(!register)}
+                        style={{color:colors.text_red_400}}
                     >
                         Login here
                     </Link>

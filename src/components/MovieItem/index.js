@@ -52,7 +52,7 @@ const MovieItem = ({
                                 {formatDate2(created_at)}
                             </p>
                             <div className="col-12 d-flex justify-content-end px-5">
-                                <button className="btn btn-warning mx-3 text-white" style={{width:'150px'}}>서표</button>
+                                {/* <button className="btn btn-warning mx-3 text-white" style={{width:'150px'}}>서표</button> */}
                                 <button className="btn btn-success mx-3 text-white" style={{width:'150px'}}>
                                     <Link to={`/moviedetails/view/${id}/${title}/${comic_ep.length}/${part}`}>읽다</Link>
                                 </button>

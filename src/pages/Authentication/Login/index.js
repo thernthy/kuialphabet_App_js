@@ -7,6 +7,8 @@ import { set } from "../../../services/CreateStorage";
 import "./style.css";
 import AuthenticationHttp from "../../../services/Http/auth";
 import { dataTagSymbol } from "@tanstack/react-query";
+import { colors } from "../../../template/color";
+import { Buttonbg } from "../../../template/button";
 
 const Login = () => {
     const { setLogged, setLogin, logged, login, token } = useContext(authContext)
@@ -26,12 +28,6 @@ const Login = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const formData = new URLSearchParams();
-            // // formData.append("grant_type", "password");
-            // // formData.append("email", email);
-            // // formData.append("password", password);
-            // // formData.append("_token", "base64:8LiE4ybINYX2HjOzL9j9QhW8vM0+ejOkBaxUNBmyxRk=");
-            // // console.log(formData)
             const response = await httpClient.get(LOGIN+`?t="base64:8LiE4ybINYX2HjOzL9j9QhW8vM0+ejOkBaxUNBmyxRk="&email=${email}&password=${password}`,{
                 headers:{
                     'X-API-Key' : process.env.REACT_APP_API_KEY
@@ -96,7 +92,7 @@ const Login = () => {
     return (
         <form className="p-md-5" onSubmit={handleFormSubmit}>
             {invalid && <p className="alert alert-danger text-center alert-message">{errorMessage}</p>}
-            <h3 className="display-4 fw-bold lh-1 text-body-emphasis mb-5 text-center fs-2">Login</h3>
+            <h3 className="display-4 fw-bold lh-1 text-body-emphasis mb-5 text-center fs-2" style={{color:colors.text_lime_400}}>로그인</h3>
             <div className="form-floating mb-3">
                 <input
                     type="email"
@@ -107,7 +103,7 @@ const Login = () => {
                     value={email}
                     onChange={getHandler(setEmail)}
                 />
-                <label htmlFor="email">Email address</label>
+                <label htmlFor="email">이메일 주소</label>
                 {emailError && <p className="text-danger messages">{emailError}</p>}
             </div>
             <div className="form-floating mb-3">
@@ -120,20 +116,21 @@ const Login = () => {
                     value={password}
                     onChange={getHandler(setPassword)}
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">비밀번호</label>
                 {passwordError && <p className="text-danger messages">{passwordError}</p>}
             </div>
             <div className="checkbox mb-3 d-flex justify-content-between">
                 <label>
-                    <input type="checkbox" value="remember-me" /> Remember me
+                    <input type="checkbox" value="remember-me" /> 날 기억해
                 </label>
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <button className="w-100 btn btn-lg " type="submit" style={{backgroundColor:Buttonbg.bg_green_500, color:colors.white}}>로그인</button>
             <hr className="mb-3 mt-4" />
             <p className="text-body-secondary">
                 Don't have an account?
                 <Link
-                    className="text-decoration-none text-primary"
+                    className="text-decoration-none "
+                    style={{color:colors.text_lime_400}}
                     to="/register"
                     onClick={() => setLogin(!login)}
                 >

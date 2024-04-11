@@ -13,9 +13,9 @@ export const useCategory = () => {
     const fetchGenres = async (id, page) => {
         //const response = await httpClient.get(`${GENRES}/${id}/movies?page=${page}`)
         const response = await httpClient.get(`${GENRES}/get?requestCategory=${id}&page=${page}`, {
-            headers: {
-                'X-API-Key' : process.env.REACT_APP_API_KEY
-            },
+                headers: {
+                    'X-API-Key' : process.env.REACT_APP_API_KEY
+                },
         })
         setPageCount(response.data.data.last_page)
         return response.data.data
@@ -32,7 +32,7 @@ export const useCategory = () => {
 
     const { data, isLoading, error, isError, refetch } = useQuery(
         {
-            queryKey: ["category_id", id],
+            queryKey: ["category_id", id, page],
             queryFn: () => fetchGenres(id, page),
             staleTime: 1000,
             onSuccess: onSuccess,

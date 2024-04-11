@@ -4,6 +4,8 @@ import { useSearchMovies } from '../../hooks/useSearchMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCancel, faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
+import { Buttonbg } from '../../template/button';
+import { colors } from '../../template/color';
 const SearchForm = () => {
     const { data, search, setSearch } = useSearchMovies()
     const [filteredData, setFilteredData] = useState([]);
@@ -36,24 +38,24 @@ const SearchForm = () => {
         return filteredData?.map((result) => (
             
             <Link
-                to={`/moviedetails/${result.id}`}
+                to={`/moviedetails/${result.comic_title_id}/${result.title}/1/`}
                 key={result.id}
                 className='text-white text-decoration-none'
             >
-                <div className="card bg-dark detail">
+                <div className="card detail py-2" style={{backgroundColor:"transparent"}}>
                     <div className="row no-gutters overflow-hidden">
                         <div className="col-sm-2">
-                            {result.poster &&
+                            {result.photo_cover_path &&
                                 <img
                                     className="card-img img-cover"
-                                    src={(result.poster.startsWith('/'))?process.env.REACT_APP_BASED_URL+result.poster:result.poster}
+                                    src={(result.photo_cover_path.startsWith('images/'))?process.env.REACT_APP_BASED_URL+"/"+result.photo_cover_path:result.photo_cover_path}
                                     alt={result.title}
                                 />
                             }
                         </div>
                         <div className="col-sm-10">
                             <div className="card-body">
-                                <h6 className="card-title">{result.title} ({result.year})</h6>
+                                <h6 className="card-title">{result.title} </h6>
                                 <p className="card-text fs-6">{result?.genres?.join(', ')}</p>
                             
                             </div>
@@ -66,14 +68,15 @@ const SearchForm = () => {
 
 
     return (
-        <div className="position-relative mt-2">
+        <div className="position-relative mt-2 ">
             <div className="w-100 form-control" 
             style={{
                     display:'flex', 
                     flexDirection:'row', 
                     justifyContent:'space-between', 
                     alignItems:'center',
-                    borderRadius:'1rem'
+                    borderRadius:'1rem',
+                    backgroundColor:Buttonbg.bg_lime_400
                 }}>
                 <input
                     className='col-11  border-0'
@@ -81,7 +84,7 @@ const SearchForm = () => {
                     name='search'
                     ref={seachValue}
                     onChange={(e)=>handleSearchInput(e)}
-                    style={{ outline: 'none' }}
+                    style={{ outline: 'none', backgroundColor:"transparent", color:colors.white}}
                 />
                 {
                 !cancelBtn?
@@ -90,7 +93,7 @@ const SearchForm = () => {
                 }
             </div>
             <div className="w-100">
-                <div className={`bg-dark w-100 search-result ${search === '' ? 'd-none' : 'd-flex flex-column'}`}>
+                <div className={`w-100 search-result rounded-1 py-2 px-2 ${search === '' ? 'd-none' : 'd-flex flex-column'}`} style={{backgroundColor:Buttonbg.bg_lime_400}}>
                     {renderFilteredMovie()}
                 </div>
             </div>

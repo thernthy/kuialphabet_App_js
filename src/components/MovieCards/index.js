@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { formatDate2 } from "../dateFormating/DateFormating";
+import { Buttonbg } from "../../template/button"
+import { colors } from "../../template/color";
 import "./style.css";
 
 const MovieCards = ({ id, title, poster, genres, year, rating }) => {
@@ -25,7 +27,8 @@ const MovieCards = ({ id, title, poster, genres, year, rating }) => {
                         >
                             <button
                                 type="button"
-                                className="btn btn-sm btn-success  text-uppercase btn__view"
+                                className="btn btn-md  text-uppercase btn__view"
+                                style={{backgroundColor:Buttonbg.bg_lime_400, color:colors.white}}
                             >
                                 View info
                             </button>
