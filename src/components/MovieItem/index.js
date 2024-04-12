@@ -61,7 +61,7 @@ const MovieItem = ({
                     </div>
                     <div className="d-flex flex-wrap h-100 w-100 mt-5 px-5 py-4">
                             {comic_ep && comic_ep?.map((item, index) => (
-                                <Link to={`/moviedetails/view/${id}/${title}/${comic_ep.length}/${item.comic_ep}`}>
+                                <Link to={`/moviedetails/view/${id}/${title}/${comic_ep.length}/${item.comic_ep}`} key={item.comic_ep_id}>
                                     <div key={index} className="d-flex " style={{  marginBottom:'10px'}}>
                                         <b className="px-4">{index + 1}</b>
                                         <img

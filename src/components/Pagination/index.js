@@ -7,9 +7,9 @@ const Pagination = ({ setPage, pageCount }) => {
     const handleClick = (e) => {
         const selectedPage = ++e.selected
         setPage(selectedPage)
-        console.log(e.selected)
     }
 
+    
 
     return (
         <div>

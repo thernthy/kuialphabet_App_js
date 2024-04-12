@@ -39,7 +39,7 @@ const SearchForm = () => {
             
             <Link
                 to={`/moviedetails/${result.comic_title_id}/${result.title}/1/`}
-                key={result.id}
+                key={result.comic_title_id}
                 className='text-white text-decoration-none'
             >
                 <div className="card detail py-2" style={{backgroundColor:"transparent"}}>
