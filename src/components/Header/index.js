@@ -2,11 +2,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { genresContext } from "../../contexts/genres-provider";
 import { authContext } from "../../contexts/auth-provider";
-import { FaRegUser } from "react-icons/fa";
-import { MdMovieEdit } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser, faSignIn, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faSignIn } from '@fortawesome/free-solid-svg-icons';
 import SearchForm from "../SearchForm";
 import Logo from "../../assets/logo/logo.jpg"
 import './style.css';
@@ -14,7 +12,7 @@ import { menueColor } from "../../template/menu_color";
 
 const Header = () => {
     const { data } = useContext(genresContext)
-    const { handleModalLogin, handleModalRegister, logged, token, setLogged } = useContext(authContext)
+    const { handleModalLogin, handleModalRegister, logged,  setLogged } = useContext(authContext)
     const renderGenres = () => {
     
         return data?.sort((a, b) => a.name.localeCompare(b.name))
