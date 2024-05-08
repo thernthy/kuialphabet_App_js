@@ -2,28 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CategoryLogo } from "../../assets/img/category_logo/rander"
 import { Link } from "react-router-dom"
 
-export const  PrimeryColor = () => {
+export const  PrimeryColor = ({iconPath, path, colorThem}) => {
+    if(colorThem > 6){
+       return <p>this colorThem 1 to 6</p>
+    }
     return (
-        <div class="tpservice mb-20 tp-sv-color-2 flex-grow">
-            <div class="tpservice__icon tpservice__icon-2">
-                {/* <a href="#">
-                    <i class="flaticon-health-insurance"></i>
-                </a> */}
-                <Link to={'/'} className="text-white font-bold">
-                    <img src={CategoryLogo?.man} alt={CategoryLogo?.man} />
+            <div className={`tpservice__icon tpservice__icon-${colorThem?  colorThem : 1} flex flex-col items-center justify-center`}>
+                <Link to={path} className="text-white font-bold">
+                    <img src={iconPath} alt={iconPath} className="w-12 h-12" />
                 </Link>
             </div>
-            <div class="tpservice__title">
-                <h4 class="tp-sv-title text-sm lg:whitespace-nowrap">
-                    <Link to={'/culural'} className="text-white no-underline"> Cultural </Link> 
-                </h4>
-            </div>
-            <div class="tpservice__circle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-    </div>
     )
 }
 
