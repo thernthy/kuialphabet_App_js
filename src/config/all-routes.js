@@ -1,17 +1,11 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import * as paths from "./route-paths";
 import Home from '../pages/Home';
-import MovieDetails from '../pages/MovieDetails';
-import Genre from '../pages/Genre';
-import AddMovie from "../pages/AddMovie";
-import Profile from "../pages/Profile";
 import AuthLayout from "../layouts/authLayout";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import NotFound from '../components/NotFound'
-import ViewMovie from "../pages/viewMovie";
-import ViewCategory from "../pages/viewcategory";
+import Words from "../pages/words";
 
 const AllRoutes = () => {
     return (
@@ -20,6 +14,11 @@ const AllRoutes = () => {
                 exact
                 path={paths.HOME}
                 element={<Home />}
+            />
+            <Route
+                exact
+                path={paths.WORDS}
+                element={<Words />}
             />
             <Route element={<AuthLayout />} >
                 <Route
@@ -33,36 +32,27 @@ const AllRoutes = () => {
                     element={<Register />}
                 />
             </Route>
-            <Route
+            {/* <Route
                 exact
                 path={paths.MOVIEDETAILS}
                 element={<MovieDetails />}
-            />
-            <Route
+            /> */}
+            {/* <Route
                 exact
                 path={paths.VIEWMOVIES}
                 element={<ViewMovie />}
-            />
-            <Route
+            /> */}
+            {/* <Route
                 exact
                 path={paths.GENRE}
                 element={<Genre />}
-            />
-            <Route
+            /> */}
+            {/* <Route
                 exact
                 path={paths.FILTERCATEGORY}
                 element={<ViewCategory />}
-            />
-            <Route
-                exact
-                path={paths.PROFILE}
-                element={<Profile />}
-            />
-            <Route
-                exact
-                path={paths.ADDMOVIE}
-                element={<AddMovie />}
-            />
+            /> */}
+
             <Route
                 exact
                 path={paths.NOTFOUND}

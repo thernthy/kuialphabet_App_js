@@ -1,0 +1,102 @@
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import required modules
+import { Pagination } from 'swiper/modules';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons/faVolumeHigh';
+import avatorOne from '../../pages/words/assets/avator1.svg'
+import { faBook, faPlay } from '@fortawesome/free-solid-svg-icons';
+
+export default function WordsPopUpSlider() {
+  return (
+    <>
+      <Swiper
+      modules={[Pagination]}
+      pagination={{ clickable: true }}
+      breakpoints={{
+        900: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        450: {
+          slidesPerView: 2,
+            spaceBetween: 10,
+        },
+      }}
+      className="mySwiper"
+    >
+        <SwiperSlide className='py-2'>
+            <div className="flex flex-row items-center py-3 px-3 rounded-md w-full justify-start gap-3 shadow-md mb-5">
+                <img src={avatorOne} className='w-40'/>
+                <div className='pt-5 w-full'>
+                    <div className='flex flex-row items-center justify-start gap-2'>
+                        <FontAwesomeIcon icon={faVolumeHigh} className='text-2xl' style={{color:'#106FBB'}} />
+                        <h4 className='text-sm whitespace-nowrap' style={{color:'#106FBB'}}>ភាសាកួយន្ទ័រ</h4>
+                        <h4 className='text-sm whitespace-nowrap' style={{color:'#106FBB'}}>/English Pronunciation/</h4>
+                    </div>
+                    <div className='flex flex-row items-center justify-start gap-2'>
+                        <FontAwesomeIcon icon={faVolumeHigh} className='text-2xl' style={{color:'#106FBB'}} />
+                        <h4 className='text-sm whitespace-nowrap' style={{color:'#106FBB'}}>ភាសាកួយន្ទ័រ</h4>
+                        <h4 className='text-sm whitespace-nowrap' style={{color:'#106FBB'}}>/English Pronunciation/</h4>
+                    </div>
+                    <div className='flex flex-col items-start justify-start gap-1 mt-2'>
+                        <h4 className='text-sm' style={{color:'#11BA99'}}>English</h4>
+                        <h4 className='text-sm' style={{color:'#CE861B'}}>ភាសារខ្មែរ</h4>
+                    </div>
+                    <div className='flex flex-row items-center py-1.5 px-2 justify-end gap-1 mt-2 '>
+                       <button className='py-1.5 px-3 
+                            rounded-full bg-green-500 text-white flex flex-row items-center justify-start gap-2
+                            '>
+                            <span>
+                                <FontAwesomeIcon icon={faBook} />
+                            </span>
+                            Explanation
+                       </button>
+                       <button className='py-1.5 px-3 
+                            rounded-full bg-red-400 text-white flex flex-row items-center justify-start gap-2
+                            '>
+                            <span>
+                                <FontAwesomeIcon icon={faPlay} />
+                            </span>
+                            Explanation
+                       </button>
+                       
+                    </div>
+                    <div>
+                        <span>commend used</span>
+                        <div className='flex flex-row items-center justify-start gap-1'>
+                                <span className='px-3 rounded-full py-1.5' 
+                                    style={{
+                                        backgroundColor:'#106FBB'
+                                    }}></span>
+                                <span className='px-3 rounded-full py-1.5' 
+                                    style={{
+                                        backgroundColor:'#106FBB'
+                                }}></span>
+                                    <span className='px-3 rounded-full py-1.5' 
+                                    style={{
+                                        background: 'rgb(16,111,187)',
+                                        background:'linear-gradient(90deg, rgba(16,111,187,1) 40%, rgba(213,244,248,1) 100%)',
+                                   }}></span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Categories</span>
+                        <div className='flex flex-row items-center justify-start gap-1'>
+                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
+                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
+                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </SwiperSlide>
+
+      </Swiper>
+    </>
+  );
+}

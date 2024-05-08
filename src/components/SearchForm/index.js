@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCancel, faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 import { Buttonbg } from '../../template/button';
-import { colors } from '../../template/color';
+
 const SearchForm = () => {
     const { data, search, setSearch } = useSearchMovies()
     const [filteredData, setFilteredData] = useState([]);
@@ -36,7 +36,6 @@ const SearchForm = () => {
         
 
         return filteredData?.map((result) => (
-            
             <Link
                 to={`/moviedetails/${result.comic_title_id}/${result.title}/1/`}
                 key={result.comic_title_id}
@@ -68,29 +67,27 @@ const SearchForm = () => {
 
 
     return (
-        <div className="position-relative mt-2 ">
-            <div className="w-100 form-control" 
-            style={{
+        <div className="position-relative">
+            <div className="w-100  py-2 rounded-full bg-white px-3 gap-2" 
+                style={{
                     display:'flex', 
                     flexDirection:'row', 
                     justifyContent:'space-between', 
                     alignItems:'center',
-                    borderRadius:'1rem',
-                    backgroundColor:Buttonbg.bg_lime_400
                 }}>
+                    {
+                    !cancelBtn?
+                        <FontAwesomeIcon icon={faSearch} className='col-1 '/>:
+                        <FontAwesomeIcon icon={faClose} onClick={()=>handleCancel()} className='col-1 text-danger'/>
+                    }
                 <input
                     className='col-11  border-0'
-                    placeholder="만화 검색.."
+                    placeholder="Search Words..."
                     name='search'
                     ref={seachValue}
                     onChange={(e)=>handleSearchInput(e)}
-                    style={{ outline: 'none', backgroundColor:"transparent", color:colors.white}}
+                    style={{ outline: 'none', backgroundColor:"transparent",}}
                 />
-                {
-                !cancelBtn?
-                    <FontAwesomeIcon icon={faSearch} className='col-1 text-success' style={{transform:'translateX(15px)'}}/>:
-                    <FontAwesomeIcon icon={faClose} onClick={()=>handleCancel()} className='col-1 text-danger' style={{transform:'translateX(15px)'}}/>
-                }
             </div>
             <div className="w-100">
                 <div className={`w-100 search-result rounded-1 py-2 px-2 ${search === '' ? 'd-none' : 'd-flex flex-column'}`} style={{backgroundColor:Buttonbg.bg_lime_400}}>

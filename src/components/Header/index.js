@@ -37,14 +37,13 @@ const Header = () => {
     }
 
     return (
-        <header className="p-3 " style={{width:"100%", position:"fixed", zIndex:"1000", backgroundColor: "white"}}>
+        <header className="p-3 top-0" style={{width:"100%", position:"fixed", zIndex:"1000", backgroundColor: "#106FBB"}}>
             <div className="container-fluid">
                 <div className="d-flex flex-wrap align-items-end justify-content-center justify-content-lg-between">
                     <Link to="/" className="text-decoration-none mb-lg-0 mb-md-2">
                         {/* <h1 className="fs-3 fw-normal m-0">만<span className="fw-bold">화</span></h1> */}
                         <img src={Logo} alt={Logo} style={{height:"80px"}}/>
                     </Link>
-
                     <ul className="nav col-12 col-lg-auto sm-pt-2 justify-content-center align-items-center mb-lg-0 mb-md-2 fw-semibold text-white">
                         <Link to="/" className="text-decoration-none" style={{color: menueColor.color}}>
                             <li className="nav-item px-3">연재웹툰</li>
@@ -65,39 +64,8 @@ const Header = () => {
                             <li className="nav-item px-3">영화</li>
                         </Link>
                     </ul>
-                    <div className="col-12 col-lg-6 mb-md-2 mb-lg-0 justify-content-center">
-                        {logged ? (
-                            <div className="d-flex row dropdown text-white">
-                                <span className="dropdown-toggle fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">My Account</span>
-                                <ul className="dropdown-menu text-small text-white">
-                                    {/* <Link to="/profile" className="text-dark text-decoration-none">
-                                        <li className="dropdown-item">
-                                            <span>
-                                                <FaRegUser size='20' />
-                                            </span>
-                                            <span className="ps-2 fw-semibold mb-0">Profile</span>
-                                        </li>
-                                    </Link>
-                                    <Link to="/newmovie" className="text-dark text-decoration-none">
-                                        <li className="dropdown-item">
-                                            <span>
-                                                <MdMovieEdit size='22' />
-                                            </span>
-                                            <span className="ps-2 fw-semibold">Add Movie</span>
-                                        </li>
-                                    </Link> */}
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <Link to="/" className="text-dark text-decoration-none">
-                                        <li className="dropdown-item" onClick={() => handleLogout() }>
-                                            <span>
-                                                <FiLogOut size='20' />
-                                            </span>
-                                            <span className="ps-2 fw-semibold">Log Out</span>
-                                        </li>
-                                    </Link>
-                                </ul>
-                            </div>
-                            ) : (
+                    <div className="col-12 col-lg-6 mb-md-2 mb-lg-0 flex flex-row items-center ">
+                        <SearchForm />
                                 < div className="text-end">
                                     <button
                                         type="button"
@@ -114,9 +82,6 @@ const Header = () => {
                                         <FontAwesomeIcon icon={faSignIn} /> <span className="mr-2 " style={{color: menueColor.color}}>노래하다</span>
                                     </button>
                                 </div>
-                            )
-                        }
-                        <SearchForm />
                     </div>
                 </div>
             </div>
