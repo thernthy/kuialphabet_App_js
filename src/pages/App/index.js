@@ -70,7 +70,7 @@ const App = () => {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1'>
+                                    <Link to={'/about us'} className='py-2 flex flex-row items-center justify-start gap-1'>
                                       <span className='mx-2'><img src={HeaderIcon.about} /></span>
                                                 About Us
                                     </Link>

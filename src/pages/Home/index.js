@@ -1,17 +1,9 @@
-import { useMovies } from "../../hooks/useMovies";
+// import { useMovies } from "../../hooks/useMovies";
 
 import Carousel from "../../components/Carousel";
-import Pagination from "../../components/Pagination";
-import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
-import MovieCards from "../../components/MovieCards";
-import { useState } from "react";
-import ShapeTwo from "../../assets/img/slider/02_Shape.png";
-import headerIcon2 from "../../assets/img/svg/header-icon-2.svg";
-import contact_shape_2 from "../../assets/img/contact/contact-shape-2.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BsArrowLeftCircleFill } from "react-icons/bs";
-import { faArrowAltCircleLeft, faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+// import Loading from "../../components/Loading";
+// import ErrorMessage from "../../components/ErrorMessage";
+// import MovieCards from "../../components/MovieCards";
 import { Supporters } from "../../db/supporter_logo";
 import Meetting from '../../assets/img/service/meetting.svg'
 import SwapperJas from "../../components/swapperComponents/testingWraper";
@@ -19,33 +11,34 @@ import ServiceComponents from "../../components/service";
 import GooGleMape from "../../components/mape/mape";
 import ConatactForm from "../../components/contacForm/contact";
 import { GalleryImg } from "../../db/gallary";
-import { PrimeryColor } from "../../components/CategoryCart";
+import { Link } from "react-router-dom";
+
 const Home = () => {
-    const { data, isLoading, error, setPage, pageCount, refetch } = useMovies()
-    const [bannerData, setBannerData]  = useState([])
-    const renderMovies = () => {
-        if (isLoading) {
-            return <Loading />
-        }
+    // const { data, isLoading, error, setPage, pageCount, refetch } = useMovies()
+    // const [bannerData, setBannerData]  = useState([])
+    // const renderMovies = () => {
+    //     if (isLoading) {
+    //         return <Loading />
+    //     }
         
-        if (error) {
-            return <ErrorMessage refetch={refetch} />
-        }
+    //     if (error) {
+    //         return <ErrorMessage refetch={refetch} />
+    //     }
       
-        return data.data?.map(movie => {
-            return (
-                <MovieCards
-                    key={movie.comic_title_id}
-                    title={movie.title}
-                    poster={movie.photo_cover_path}
-                    id={movie.comic_title_id}
-                    genres={movie?.genres?.join(', ')}
-                    year={movie.created_at}
-                    rating={movie.imdb_rating}
-                />
-            );
-        })
-    }
+    //     return data.data?.map(movie => {
+    //         return (
+    //             <MovieCards
+    //                 key={movie.comic_title_id}
+    //                 title={movie.title}
+    //                 poster={movie.photo_cover_path}
+    //                 id={movie.comic_title_id}
+    //                 genres={movie?.genres?.join(', ')}
+    //                 year={movie.created_at}
+    //                 rating={movie.imdb_rating}
+    //             />
+    //         );
+    //     })
+    // }
 
 
     return (
@@ -91,26 +84,21 @@ const Home = () => {
                     </li>
                 </ul>
             </div>
-            <div className="container">
-                <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-3">
-                        {renderMovies()}
-                </div>
-            </div>
          </div>
          {/* supporter section end */}
          {/* about section start */}
-        <div class="container">
-                    <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="tp-about-thumb">
+        <div className="container">
+                    <div className="row align-items-center">
+                    <div className="col-xl-6 col-lg-6">
+                        <div className="tp-about-thumb">
                             <img src={Meetting} alt=""/>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 ">
-                        <div class="tp-about-section-box ">
-                            <h4 class="tp-section-subtitle">About us</h4>
-                            <h3 class="tp-section-title pb-20">Change the way but <span><br/> life Insurance</span></h3>
-                            <p class="paragraph-one">Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo
+                    <div className="col-xl-6 col-lg-6 ">
+                        <div className="tp-about-section-box ">
+                            <h4 className="tp-section-subtitle">About us</h4>
+                            <h3 className="tp-section-title pb-20">Change the way but <span><br/> life Insurance</span></h3>
+                            <p className="paragraph-one">Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo
                                 claritatem insitamconse
                                 quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse
                                 quat.Exerci tationlobortis nisl aliquip ex ea commodo
@@ -118,9 +106,9 @@ const Home = () => {
                             <p>Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse
                                 quat.Exerci tation ullamcorper suscipit loborti </p>
                         </div>
-                        <div class="tp-about-button-box d-flex align-items-center mb-6">
-                            <a class="tp-btn tp-ab-button-one" href="about-us.html">About us</a>
-                            <a class="tp-ab-play-button popup-video" href="https://www.youtube.com/watch?v=PfPP5ac_aQo"><i class="fas fa-play"></i></a>
+                        <div className="tp-about-button-box d-flex align-items-center mb-6">
+                            <Link className="tp-btn tp-ab-button-one" to={"/about us"}>About us</Link>
+                            <Link className="tp-ab-play-button popup-video" to={"https://www.youtube.com/watch?v=PfPP5ac_aQo"}><i class="fas fa-play"></i></Link>
                         </div>
                     </div>
                     </div>
@@ -152,11 +140,7 @@ const Home = () => {
            <ConatactForm />
         {/* contact form section end */}
       </div>
-        {/* category slider section end */}
-         <div class="tp-about-area pb-130">
-            <PrimeryColor />
-         </div>
-        </main>
+    </main>
     )
 }
 

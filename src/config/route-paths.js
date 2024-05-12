@@ -1,5 +1,6 @@
 export const HOME = '/';
 export const WORDS = '/words'
+export const ABOUT = '/about us'
 export const LOGIN = '/login';
 export const REGISTER = '/register';
 export const MOVIEDETAILS = '/moviedetails/:id/:title/:ep';

@@ -3,7 +3,7 @@ import googleMapSvg from '../../assets/img/mape/googleMap_svg.svg';
 import '../../assets/css/preload.min.css';
 import '../../assets/css/icomoon.css';
 import '../../assets/css/libs.min.css';
-import '../../assets/css/index.min.css';
+import '../../assets/css/mapstyle.css';
 import { Link } from 'react-router-dom';
 
 const GoogleMap = () => {

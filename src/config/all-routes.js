@@ -6,6 +6,7 @@ import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import NotFound from '../components/NotFound'
 import Words from "../pages/words";
+import { About } from "../pages/about";
 
 const AllRoutes = () => {
     return (
@@ -19,6 +20,11 @@ const AllRoutes = () => {
                 exact
                 path={paths.WORDS}
                 element={<Words />}
+            />
+            <Route
+                exact
+                path={paths.ABOUT}
+                element={<About />}
             />
             <Route element={<AuthLayout />} >
                 <Route
