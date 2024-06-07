@@ -12,9 +12,12 @@ import { CategoriesOpj } from "../../db/category";
 import { Link } from "react-router-dom";
 import { useHookWord } from "../../hooks/hookWords";
 import { useTranslation } from "react-i18next";
+import { ExplanationPopup } from "../../components/explanPop";
 
 const Words = () => {
     const { t, i18n } = useTranslation("global");
+    const [isExplanetion, setIsExplanetion] = useState(false)
+    const [targetExplan, setTartgetExplan] = useState([])
     const {
         data, 
         isLoading, 
@@ -83,18 +86,17 @@ const Words = () => {
                                         <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
                                     </div>
                                 </div>
-                                <button
+                                <button onClick={()=>HandleExplanation(word.id)}
                                     className=" capitalize py-1.5 px-3 rounded-full bg-green-400 text-white flex flex-row items-center justify-start gap-2"
                                 >
-                                    <Link
-                                        to={`view/${word.english_lang}/${word.kui_lang}/method`}
+                                    <span 
                                         className="text-white no-underline"
                                     >
                                         <span>
                                             <FontAwesomeIcon icon={faBook} />
                                         </span>
                                         {t("homePage.explanation")}
-                                    </Link>
+                                    </span>
                                 </button>
                             </div>
                         </div>
@@ -103,7 +105,11 @@ const Words = () => {
             </div>
         );
     }
-
+    const HandleExplanation = (word_id) => {
+        const targetData = data?.filter(item => item.id === word_id);
+        setTartgetExplan(targetData);
+        setIsExplanetion(true);
+    };
     // const renderMovies = () => {
     //     if (isLoading) {
     //         return <Loading />
@@ -144,6 +150,12 @@ const Words = () => {
           <div className="container">
            <WordsPopUpSlider />
           </div>
+         
+         {isExplanetion && targetExplan.length !== 0 && 
+                <ExplanationPopup data={targetExplan}/>
+         }
+          
+
           <div className="container">
             <h3 className=" capitalize">{t("homePage.explore")} {t("homePage.words")}</h3>
             <div className=" px-2 py-1 pb-2 border-b-2 flex w-full flex-row items-end lg:items-center text-xs md:text-sm  lg:text-md justify-between gap-1 md:gap-6 ">
