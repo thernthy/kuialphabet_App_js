@@ -1,37 +1,35 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSearchMovies } from '../../hooks/useSearchMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCancel, faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
-import { Buttonbg } from '../../template/button';
 
-const SearchForm = () => {
-    const { data, search, setSearch } = useSearchMovies()
+const SearchForm = ({t}) => {
+    // const { data, search, setSearch } = useSearchMovies()
     const [filteredData, setFilteredData] = useState([]);
     const [cancelBtn, setCancelBnt] = useState(false);
-    const filteredMovies = data?.filter(item =>
-        item.title.toLowerCase().includes(search.toLowerCase())
-    )
+    // const filteredMovies = data?.filter(item =>
+    //     item.title.toLowerCase().includes(search.toLowerCase())
+    // )
     const seachValue = useRef();
     const handleSearchInput = (e) => {
-        setFilteredData(filteredMovies)
-        setSearch(e.target.value)
-        if(e.target.value!=''){
-            setCancelBnt(true)
-        }else{
-            setCancelBnt(false)
-        }
+        // setFilteredData(filteredMovies)
+        // setSearch(e.target.value)
+        // if(e.target.value!=''){
+        //     setCancelBnt(true)
+        // }else{
+        //     setCancelBnt(false)
+        // }
     }
 
     const handleCancel = () => {
-        seachValue.current.value = '';
-        setCancelBnt(false);
-        setSearch('')
+        // seachValue.current.value = '';
+        // setCancelBnt(false);
+        // setSearch('')
     }
     const renderFilteredMovie = () => {
         if (!filteredData || filteredData?.length === 0) {
-            return <p className="text-center text-white fs-5 fw-semibold m-auto p-5">No results found for "{search}"</p>
+            return <p className="text-center text-white fs-5 fw-semibold m-auto p-5">No results found for ""</p>
         }
         
 
@@ -68,7 +66,7 @@ const SearchForm = () => {
 
     return (
         <div className="position-relative">
-            <div className="w-100  py-2 rounded-full bg-white px-3 gap-2" 
+            <div className=" w-100  py-2 rounded-full bg-white px-3 gap-2" 
                 style={{
                     display:'flex', 
                     flexDirection:'row', 
@@ -82,7 +80,7 @@ const SearchForm = () => {
                     }
                 <input
                     className='col-11  border-0'
-                    placeholder="Search Words..."
+                    placeholder={`${t("homePage.search")} ${t("homePage.words")}...`}
                     name='search'
                     ref={seachValue}
                     onChange={(e)=>handleSearchInput(e)}
@@ -90,9 +88,9 @@ const SearchForm = () => {
                 />
             </div>
             <div className="w-100">
-                <div className={`w-100 search-result rounded-1 py-2 px-2 ${search === '' ? 'd-none' : 'd-flex flex-column'}`} style={{backgroundColor:Buttonbg.bg_lime_400}}>
+                {/* <div className={`w-100 search-result rounded-1 py-2 px-2 ${search === '' ? 'd-none' : 'd-flex flex-column'}`} style={{backgroundColor:Buttonbg.bg_lime_400}}>
                     {renderFilteredMovie()}
-                </div>
+                </div> */}
             </div>
         </div>
     );

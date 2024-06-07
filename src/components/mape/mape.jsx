@@ -6,7 +6,7 @@ import '../../assets/css/libs.min.css';
 import '../../assets/css/mapstyle.css';
 import { Link } from 'react-router-dom';
 
-const GoogleMap = () => {
+const GoogleMap = ({t}) => {
     useEffect(() => {
         const initializeMap = () => {
             const spots = [
@@ -67,11 +67,11 @@ const GoogleMap = () => {
             <div className="container">
                 <div className="wrapper">
                     <div className="spots_header section_header">
-                        <span className="subtitle">KUI Community</span>
+                        <span className="subtitle caption-top">{t("homePage.kui")} {t("homePage.community")}</span>
                         <h2 className="title">
-                            Our
-                            <span className="highlight">Community</span>
-                            In Cambodia
+                            {t("homePage.our")}
+                            <span className="highlight">{t("homePage.community")}</span>
+                            {t("homePage.in cambodia")}
                         </h2>
                     </div>
                     <div className="spots_map">
@@ -87,16 +87,16 @@ const GoogleMap = () => {
                     <div className="wrapper">
                         <div className="spots_info-number">
                             <h2 className="countNum number" data-suffix="+" data-value="200">10 +</h2>
-                            <span className="label">Kui Community</span>
+                            <span className="label capitalize">{t("homePage.kui")} {t("homePage.community")}</span>
                         </div>
                         <div className="spots_info-number">
                             <h2 className="countNum number" data-suffix="%" data-value="99">80%</h2>
-                            <span className="label">Explore Our Community</span>
+                            <span className="label">{t("homePage.explore")} {t("homePage.our")} {t("homePage.community")}</span>
                         </div>
                     </div>
                     <div className='mt-4'>
                         <Link className="px-6 py-2 rounded-full text-white no-underline bg-blue-600 " href="about.html">
-                            Explore Our Community
+                         {t("homePage.explore")} {t("homePage.our")} {t("homePage.community")}
                         </Link>
                     </div>
                 </div>

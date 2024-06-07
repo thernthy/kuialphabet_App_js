@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Link } from "react-router-dom";
 import AuthProvider from "../../contexts/auth-provider";
-import GenresProvider from "../../contexts/genres-provider";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
-import Modal from '../Authentication/components/Modal';
 import AllRoutes from "../../config/all-routes";
 import CompanyLogo from "../../assets/img/logo/company_logo.svg"
 import "../../assets/css/bootstrap.min.css";
@@ -23,32 +21,44 @@ import "../../assets/css/style.css";
 import SearchForm from '../../components/SearchForm';
 import '../../assets/globle.css'
 import englishLogo from"../../assets/img/lag/en.svg"
+import KhmerFlag from"../../assets/img/lag/cambodia.svg"
 import { HeaderIcon } from '../../db/menue_logo';
 import $ from 'jquery';
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [languechageModel, setLanguechageModel] = useState(false)
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
+
+  const { t, i18n } = useTranslation("global");
+  const curretLanguage = i18n.language;
+  const handleLangueChageModel = () => {
+    setLanguechageModel(!languechageModel)
+  }
+  const languageChage = (language) => {
+    i18n.changeLanguage(language)
+  }
+
+
   return loading ? (
-    <Loading />
+    <Loading position={'fixed'} />
   ) : (
     <BrowserRouter>
     {/* h */}
       <AuthProvider>
-        <Modal />
-        <GenresProvider> 
-            <header>
-              <div id="header-sticky" className="tp-header-area top-0 header-transparent header-space header-border"
+            <header className=' fixed top-0 left-0 w-full' style={{zIndex:'1000'}}>
+              <div id="header-sticky" className=" sticky tp-header-area top-0 header-transparent header-space header-border"
               style={{backgroundColor:'#106FBB'}}
               >
                 <div className="container-fluid">
                     <div className="row g-0 align-items-center">
                       <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                           <div className="tp-logo">
-                            <a href="index.html" className='flex text-white no-underline flex-row items-center gap-2'>
-                              <img src={CompanyLogo} alt="" className='w-20 bg-white rounded-full'/>
+                            <a href="/" className='flex text-white no-underline flex-row items-center gap-2'>
+                              <img src={CompanyLogo} alt="" className=' w-12 bg-white rounded-full'/>
                               KUI Alphabeted <br/> Website
                             </a>
                           </div>
@@ -58,27 +68,27 @@ const App = () => {
                             <nav id="mobile-menu">
                                 <ul className='pb-0'>
                                   <li >
-                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1'>
+                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.home} /></span>
-                                      Home
+                                      {t("header.menue_text.home")}
                                     </Link>
                                   </li>
                                   <li>                                    
-                                    <Link to={'/words'} className='py-2 flex flex-row items-center justify-start gap-1'>
-                                              <span className='mx-2'><img src={HeaderIcon.words} /></span>
-                                                Words
+                                    <Link to={'/words'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
+                                        <span className='mx-2'><img src={HeaderIcon.words} /></span>
+                                        {t("header.menue_text.words")}
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link to={'/about us'} className='py-2 flex flex-row items-center justify-start gap-1'>
+                                    <Link to={'/about us'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.about} /></span>
-                                                About Us
+                                      {t("header.menue_text.about_us")}
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1'>
+                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.faqs} /></span>
-                                      Faqs
+                                      {t("header.menue_text.faqs")}
                                     </Link>
                                   </li>
                                 </ul>
@@ -87,16 +97,51 @@ const App = () => {
                       </div>
                       <div className="col-xxl-4 col-xl-3 col-lg-2 col-md-6 col-6">
                           <div className="tp-header-right d-flex align-items-center justify-content-end">
-                            <SearchForm />
-                            <div className="tp-header-button d-none d-md-block">
-                                <div className="rounded-full  bg-white flex flex-row items-center justify-around px-2 py-1.5 gap-1">
+                            <SearchForm t={t} />
+                            <div className="tp-header-button d-none d-md-block relative">
+                                <div className="rounded-full  bg-white flex flex-row items-center justify-around px-2 py-1.5 gap-1
+                                " onClick={handleLangueChageModel}>
                                   <div>
-                                    <img src={englishLogo} />
+                                    <img src={
+                                      curretLanguage && curretLanguage === "en"? 
+                                    englishLogo : KhmerFlag} />
                                   </div>
-                                  <div className='p-0 m-0'>
-                                    English
+                                  <div className='p-0 m-0 capitalize cursor-pointer'>
+                                   {t("header.menue_text.english")}
                                   </div>
                                 </div>
+                                {languechageModel &&
+                                  <ul className=' fixed top-22 mt-2 flex flex-col gap-1 bg-blue-600 p-0 capitalize items-start justify-around right-4 min-h-16'>
+                                    <li onClick={ ()=> languageChage ('en') } 
+                                      className={`
+                                        flex flex-row items-center gap-2 justify-start cursor-pointer 
+                                        px-2
+                                        w-full
+                                        py-1.5
+                                      ${curretLanguage === "en"? 'bg-white':''} 
+                                      `}>
+                                      <div className=''>
+                                        <img src={englishLogo} />
+                                      </div>
+                                      {t("header.menue_text.english")}
+                                    </li>
+                                    <li onClick={ ()=> languageChage ('kh') } 
+                                      className={`
+                                      flex flex-row items-center gap-2 justify-start cursor-pointer
+                                      px-2
+                                      w-full
+                                      py-1.5
+                                      ${curretLanguage === "kh"? 'bg-white':''
+
+                                      }
+                                      `}>
+                                      <div className=''>
+                                        <img src={KhmerFlag} />
+                                      </div>
+                                      {t("header.menue_text.khmer")}
+                                    </li>
+                                  </ul>
+                                }
                             </div>
                             <div className="tp-toggle-bar d-lg-none">
                                 <a className="tp-menu-bar" href="javascript:void(0)"><i className="fas fa-bars"></i></a>
@@ -140,8 +185,7 @@ const App = () => {
               </div>
               <div className="body-overlay"></div>
             </header>
-          <AllRoutes />
-        </GenresProvider>
+          <AllRoutes />​
       </AuthProvider>
       <Footer />
     </BrowserRouter>

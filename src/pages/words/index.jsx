@@ -1,4 +1,4 @@
-import { useMovies } from "../../hooks/useMovies";
+
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import MovieCards from "../../components/MovieCards";
@@ -10,55 +10,129 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { CategoriesOpj } from "../../db/category";
 import { Link } from "react-router-dom";
+import { useHookWord } from "../../hooks/hookWords";
+import { useTranslation } from "react-i18next";
 
 const Words = () => {
-    const { data, isLoading, error, setPage, pageCount, refetch } = useMovies()
-    const [bannerData, setBannerData]  = useState([])
+    const { t, i18n } = useTranslation("global");
+    const {
+        data, 
+        isLoading, 
+        error, 
+        refetch, 
+        filterByCategory, 
+        setFilterByCategory,
+        filterAlphabetEn, 
+        setFilterAlphabetEn,
+        filterAlphabetKh, 
+        setFilterAlphabetKh } = useHookWord();
+    // const [bannerData, setBannerData]  = useState([])
     const [ alpabetchar, setAlpabetchar ] = useState();
     const handleFilterChar = ( CharName ) => {
         setAlpabetchar( CharName )
     }
     const handleCategorySelection = (value) => {
         const categoryId = value.target.value
-        alert (`Apito/${categoryId }`)
+        setFilterByCategory(categoryId && categoryId ===  "null"? null : categoryId)
     }
     const haleEnAlphabetSelection = ( value ) => {
         const char = value.target.value
-        alert('Apito/' + char)
+        setFilterAlphabetEn(char && char === "null"? null : char)
     }
     const handleKhAlphabetSelection = ( value ) => {
         const char = value.target.value
-        alert(`Apito/${char}`)
+        setFilterAlphabetKh(char && char === "null"? null : char)
     }
 
-    const renderMovies = () => {
-        if (isLoading) {
-            return <Loading />
+    const randerWords = () => {
+        if(isLoading){
+           return <div className="w-full relative p-5 mt-2"><Loading position={'absolute'}/></div>
         }
-        
-        if (error) {
-            return <ErrorMessage refetch={refetch} />
+        if(error){
+           return <h3 className="text-red-400 p-5 mt-2 text-center">Error</h3>
         }
-      
-        return data.data?.map(movie => {
-            return (
-                <MovieCards
-                    key={movie.comic_title_id}
-                    title={movie.title}
-                    poster={movie.photo_cover_path}
-                    id={movie.comic_title_id}
-                    genres={movie?.genres?.join(', ')}
-                    year={movie.created_at}
-                    rating={movie.imdb_rating}
-                />
-            );
-        })
+        if(data && data.length === 0){
+            return <h4 className="text-red-400 p-5 mt-2 text-center">Word not found!</h4>
+        }
+        return (
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-2 mb-5 mt-2">
+                {data?.map((word, index) => {
+                    return (
+                        <div
+                            className="border-b-2 flex flex-col items-start justify-evenly px-2 py-3 rounded-md gap-2"
+                            key={index}
+                        >
+                            <div className="text-sm font-bold text-blue-600">
+                                {word.kui_1}
+                            </div>
+                            <div className="text-sm font-bold text-blue-600">
+                                {word.kui_2}
+                            </div>
+                            <div className="text-sm font-bold" style={{ color: '#1BAECE' }}>
+                                {word.english_word}
+                            </div>
+                            <div className="text-sm font-bold text-yellow-400">
+                                {word.khmer_word}
+                            </div>
+                            <div className="flex flex-row items-center justify-start gap-2">
+                                <div>
+                                    <span className="text-xs">commend used</span>
+                                    <div className="flex flex-row items-center justify-start gap-1">
+                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
+                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
+                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
+                                    </div>
+                                </div>
+                                <button
+                                    className=" capitalize py-1.5 px-3 rounded-full bg-green-400 text-white flex flex-row items-center justify-start gap-2"
+                                >
+                                    <Link
+                                        to={`view/${word.english_lang}/${word.kui_lang}/method`}
+                                        className="text-white no-underline"
+                                    >
+                                        <span>
+                                            <FontAwesomeIcon icon={faBook} />
+                                        </span>
+                                        {t("homePage.explanation")}
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        );
     }
+
+    // const renderMovies = () => {
+    //     if (isLoading) {
+    //         return <Loading />
+    //     }
+        
+    //     if (error) {
+    //         return <ErrorMessage refetch={refetch} />
+    //     }
+      
+    //     return data.data?.map(movie => {
+    //         return (
+    //             <MovieCards
+    //                 key={movie.comic_title_id}
+    //                 title={movie.title}
+    //                 poster={movie.photo_cover_path}
+    //                 id={movie.comic_title_id}
+    //                 genres={movie?.genres?.join(', ')}
+    //                 year={movie.created_at}
+    //                 rating={movie.imdb_rating}
+    //             />
+    //         );
+    //     })
+    // }
     return (
-        <main>
+        <>
           <div className="px-2 py-4 mt-20 text-center w-6/12 mx-auto">
-            <h2>
-                Kui <span style={{color:'#106FBB'}}>Alphabeted</span>
+            <h2 className=" capitalize">
+                {t("homePage.kui")}
+                <span style={{color:'#106FBB'}} className=" caption-top"> {t("header.alphabeted")}</span>
                 <p className="pt-4">
                     Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
                     Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem 
@@ -71,9 +145,9 @@ const Words = () => {
            <WordsPopUpSlider />
           </div>
           <div className="container">
-            <h3>Explore words</h3>
-            <div className="flex w-fullflex-row items-end lg:items-center text-xs md:text-sm  lg:text-md justify-stretch gap-1 md:gap-6 ">
-                <div className="flex flex-col items-start justify-around gap-3 ">
+            <h3 className=" capitalize">{t("homePage.explore")} {t("homePage.words")}</h3>
+            <div className=" px-2 py-1 pb-2 border-b-2 flex w-full flex-row items-end lg:items-center text-xs md:text-sm  lg:text-md justify-between gap-1 md:gap-6 ">
+                <div className="flex flex-col items-start justify-around gap-3">
                     <span><b>Filter Category</b></span>
                     <select onChange={ (value)=>handleCategorySelection(value) } className=" 
                              text-gray-900 
@@ -91,6 +165,7 @@ const Words = () => {
                              capitalize
                              h-10
                         ">
+                       <option value={'null'}>All</option>
                        {CategoriesOpj?.map((category, index) => {
                          return (
                             <option value={category.id} key={category.id}>{ category.name }</option>
@@ -118,6 +193,7 @@ const Words = () => {
                              dark:focus:border-blue-500
                              h-10
                         ">
+                        <option value={"null"}>All</option>
                         {Alphabet?.map((char, index) => {
                                 return <option value={ char } key={index + 1}>{ char }</option>
                           })
@@ -141,6 +217,7 @@ const Words = () => {
                         dark:focus:border-blue-500
                           h-10
                     ">
+                        <option value={"null"}>All</option>
                         {KhAlphabet?.map((char, index) => {
                                     return <option value={ char.char_name } key={index + 1}>{ char.char_name }</option>
                             })
@@ -148,53 +225,9 @@ const Words = () => {
                     </select>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-2 mb-5 mt-2">
-                {
-                    WordsData?.map((word, index) => {
-                        return(
-                            <div className="
-                                    shadow-md flex flex-col items-start justify-evenly
-                                    px-2 py-3 rounded-md gap-2
-                                " key={index}>
-                                <div className="text-sm font-bold text-blue-600">
-                                    {word.kui_lang}
-                                </div>
-                                <div className="text-sm font-bold text-blue-600">
-                                    {word.kui_lang2}
-                                </div>
-                                <div className="text-sm font-bold" style={{color:'#1BAECE'}}>
-                                    {word.english_lang}
-                                </div>
-                                <div className="text-sm font-bold" style={{color:'#CE861B'}}>
-                                    {word.khmer_lang}
-                                </div>
-                                <div className="flex flex-row items-center justify-start gap-2">
-                                    <div>
-                                        <span>commend used</span>
-                                        <div className='flex flex-row items-center justify-start gap-1'>
-                                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
-                                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
-                                            <span className='px-3 rounded-full py-1.5' style={{backgroundColor:'#106FBB'}}></span>
-                                        </div>
-                                    </div>
-                                    <button className='py-1.5 px-3 
-                                            rounded-full bg-blue-600 text-white flex flex-row items-center justify-start gap-2
-                                            '>
-                                        <Link to={`view/${word.english_lang}/${word.kui_lang}/method`} className="text-white no-underline">
-                                            <span>
-                                                <FontAwesomeIcon icon={faBook} />
-                                            </span>
-                                            Explanation
-                                        </Link>
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+           { randerWords() }
           </div>
-        </main>
+        </>
     )
 }
 

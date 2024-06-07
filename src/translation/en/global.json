@@ -1,0 +1,45 @@
+{
+    "header":{
+        "message":"Wecome to Kui Alphabet",
+        "menue_text":{
+            "home":"home",
+            "words":"words",
+            "about_us":"about us",
+            "faqs":"faqs",
+            "english":"english",
+            "khmer":"khmer"
+        },
+        "alphabeted" : "alphabeted"
+    },
+
+    "homePage": {
+      "search":"search",
+      "words":"words",
+      "word":"word",
+      "contact":"contact",
+      "us":"us",
+      "today":"today",
+      "sponsor":"sponsor",
+      "supported": "supported",
+      "deploy project":"deploy project",
+      "about": "about",
+      "change the way but life insurance":"change the way but life insurance",
+      "categories":"categories",
+      "select":"select",
+      "of words you want to know": "of words you want to know",
+      "gallery" : "gallery",
+      "ourgallery" : "ourgallery",
+      "kui" : "kui",
+      "in cambodia": "in cambodia",
+      "community": "community",
+      "explore": "explore",
+      "our":"our",
+      "email" : "email",
+      "team":"team",
+      "insurance": "insurance",
+      "feedback": "feedback",
+      "client" : "client",
+      "client’s give us many reviews for us.":"client’s give us many reviews for us.",
+      "explanation":"explanation"
+    }
+}

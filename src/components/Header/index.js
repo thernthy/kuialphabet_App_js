@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { genresContext } from "../../contexts/genres-provider";
 import { authContext } from "../../contexts/auth-provider";
 import { FiLogOut } from "react-icons/fi";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,25 +10,7 @@ import './style.css';
 import { menueColor } from "../../template/menu_color";
 
 const Header = () => {
-    const { data } = useContext(genresContext)
     const { handleModalLogin, handleModalRegister, logged,  setLogged } = useContext(authContext)
-    const renderGenres = () => {
-    
-        return data?.sort((a, b) => a.name.localeCompare(b.name))
-            .map(category => {
-                return (
-                    <Link
-                        className="text-decoration-none text-primary"
-                        to={`/category/${category.id}-${category.name}`}
-                        key={category.id}
-                    >
-                        <li className="dropdown-item" key={category.id}>{category.name}</li>
-                    </Link>
-                );
-            })
-    }
-
-    
     const handleLogout = () => {
         localStorage.removeItem('access_token')
         localStorage.removeItem('refresh_token')
@@ -51,12 +32,12 @@ const Header = () => {
                         <Link to="/completed" className="text-decoration-none" style={{color: menueColor.color}}>
                             <li className="nav-item px-3">완결웹툰</li>
                         </Link>
-                         <li className="nav-item px-3 dropdown" style={{cursor:"pointer"}}>
+                         {/* <li className="nav-item px-3 dropdown" style={{cursor:"pointer"}}>
                             <span className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style={{color: menueColor.color}}>필터링 기준</span>
                             <ul className="dropdown-menu genres__box">
                                 {renderGenres()}
                             </ul>
-                        </li>
+                        </li> */}
                         {/* <Link to="/comic" className="text-white text-decoration-none">
                             <li className="nav-item px-3">코믹스</li>
                         </Link> */}

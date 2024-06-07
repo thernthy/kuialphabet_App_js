@@ -1,0 +1,45 @@
+{
+    "header":{
+        "message":"សូមស្វគមន៍មកកាន់គេហ័ទំព័រពាក្យរបស់បងប្ដូនជនជាតិកួយ",
+        "menue_text":{
+            "home":"ទំព័រដើម",
+            "words":"ពាក្យ",
+            "about_us":"អំពី",
+            "faqs":"សំណួរ",
+            "english":"អង្គគ្លេស",
+            "khmer":"ខ្មែរ"
+        },
+        "alphabeted":"អក្ខរក្រម"
+    },
+
+    "homePage": {
+        "search":"ស្វែងរក",
+        "words":"ពាក្យ",
+        "word":"ពាក្យ",
+        "contact":"ទំនាក់ទំនង",
+        "us":"ពួកយើង",
+        "today":"ឥឡូវ​",
+        "sponsor":"អ្នកឧបត្ថម្ភ",
+        "supported": "ផ្គត់ផ្គង់",
+        "deploy project":"អ្នកកាន់គម្រោង",
+        "about": "អំពី",
+        "change the way but life insurance":"ផ្លាស់ប្តូរផ្លូវ ប៉ុន្តែការធានារ៉ាប់រងអាយុជីវិត",
+        "categories":"ប្រភេទ",
+        "select":"ជ្រើសរើស",
+        "of words you want to know": "ពាក្យដែលអ្នកចង់ដឹង",
+        "gallery" : "ប្រភេទ",
+        "ourgallery" : "វិចិត្រសាលរបស់យើង។",
+        "kui" : "កួយ",
+        "in cambodia": "ក្នុងប្រទេសកម្ពុជា",
+        "community": "សហគមន៍",
+        "explore":"រុករក",
+        "our":"របស់យើង",
+        "email" : "អ៊ីមែល",
+        "team":"ក្រុម",
+        "insurance": "ការធានារ៉ាប់រង",
+        "feedback": "មតិកែលម្អ",
+        "client" : "អតិថិជន",
+        "client’s give us many reviews for us.":"អតិថិជនផ្តល់ឱ្យយើងនូវការពិនិត្យជាច្រើនសម្រាប់ពួកយើង។",
+        "explanation":"ការពន្យល់"
+      }
+}

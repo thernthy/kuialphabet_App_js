@@ -6,14 +6,10 @@ import Components from "../comment"
 const Footer = () => {
     return (
         <footer>
-            <Components />
-            <div className="tp-footer-area pt-0 black-bg p-relative">
-            <div className="tp-service-shape-2">
-            </div>
-            {/* <div className="tp-footer-shape-1">
-                <img src={commentShapeTwo} alt=""/>
-                <img src={require("../../assets/img/slider/06_Shape.png")} alt="" />
-            </div> */}
+            {/* <Components /> */}
+           <div className="tp-footer-area pt-0 black-bg p-relative">
+           <div className="tp-service-shape-2">
+           </div>
             <div className="container pt-20">
                 <div className="row">
                     <div className="col-xl-12">
@@ -79,9 +75,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            </div>
-
-     </footer>
+           </div>
+        </footer>
     )
 }
 

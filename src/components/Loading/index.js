@@ -1,8 +1,8 @@
 import "./style.css"
 
-const Loading = () => {
+const Loading = ({position}) => {
     return (
-        <section className="dots__container">
+        <div className={`dots__container ${position}`}>
             <div className="dots__content">
                 <div className="dot"></div>
                 <div className="dot"></div>
@@ -10,7 +10,7 @@ const Loading = () => {
                 <div className="dot"></div>
                 <div className="dot"></div>
             </div>
-        </section>
+        </div>
     )
 }
 
