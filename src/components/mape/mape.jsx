@@ -10,16 +10,16 @@ const GoogleMap = ({t}) => {
     useEffect(() => {
         const initializeMap = () => {
             const spots = [
-                { x: 20, y: 23, content: "Fresh Concept Construction Renovation" },
-                { x: 80, y: 25, content: "Reconstruction of Old Factory Building" },
-                { x: 63, y: 53, content: "Jazzy Elite Construction Shopping Center" },
+                { x: 20, y: 23, content:t("homePage.mape.kopong_thom")},
+                { x: 80, y: 25, content: t("homePage.mape.kopong_thom") },
+                { x: 63, y: 53, content: t("homePage.mape.kopong_thom") },
                 { x: 56, y: 70, content: "Molestie nunc non blandit massa" },
                 { x: 45, y: 84, content: "Excepteur sint occaecat cupida" }
             ];
         
             const spotsMap = document.querySelector(".spots_map");
         
-            for (let i = 0; i < spots.length; i++) {
+            for (let i = 0; i < spots?.length; i++) {
                 const hotSpot = document.createElement("div");
                 hotSpot.classList.add("hot-spot");
                 spotsMap.append(hotSpot);
@@ -34,12 +34,12 @@ const GoogleMap = ({t}) => {
                 const speechBubbles = document.querySelectorAll(".speech-bubble");
             
                 // Ensure hotSpots and speechBubbles arrays have the same length as spots
-                if (hotSpots.length !== spots.length || speechBubbles.length !== spots.length) {
+                if (hotSpots?.length !== spots?.length || speechBubbles?.length !== spots?.length) {
                     console.error("Mismatch in spots, hotSpots, or speechBubbles array lengths");
                     return;
                 }
             
-                for (let i = 0; i < spots.length; i++) {
+                for (let i = 0; i < spots?.length; i++) {
                     const { x, y, content } = spots[i];
             
                     // Check if hotSpot and speechBubble elements are available

@@ -15,6 +15,10 @@
 
 
     "homePage": {
+      "mape": {
+        "kopong_thom":"Kompong Thom"
+      },
+      
       "cantactForm":{
         "our_team":"Our team",
         "contact":"Contact",

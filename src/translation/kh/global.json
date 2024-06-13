@@ -13,6 +13,9 @@
     },
 
     "homePage": {
+      "mape": {
+        "kopong_thom":"កំពង់ធំ"
+      },
       "cantactForm":{  
         "our_team":"ពួកយើង",
         "contact":"ទំនាក់ទំនងមកកាន់",
