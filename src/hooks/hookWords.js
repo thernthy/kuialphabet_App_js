@@ -13,7 +13,7 @@ export const useHookWord = () => {
     };
 
     const fetchWord = async ({ filterByCategory, filterAlphabetEn, filterAlphabetKh }) => {
-        const payload = { page: 1 };
+        const payload = {};
     
         // Add filters to the payload if they are provided
         if (filterByCategory) {
@@ -28,11 +28,11 @@ export const useHookWord = () => {
     
         // Make the HTTP POST request with the payload
         const response = await HttpClient.post('word/get', payload);
-        return response.data.data;
+        return response.data;
     };
 
     const onSuccess = (data) => {
-        console.log("fetch succeeded!", data);
+        //console.log("fetch succeeded!", data);
     };
 
     const onError = (error) => {

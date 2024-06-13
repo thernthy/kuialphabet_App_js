@@ -1,15 +1,11 @@
 
 import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
-import MovieCards from "../../components/MovieCards";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WordsPopUpSlider from "../../components/WordsSlider";
 import { Alphabet, KhAlphabet } from "./assets/db/alpabet";
-import { Words as WordsData } from "./assets/db/words";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { CategoriesOpj } from "../../db/category";
-import { Link } from "react-router-dom";
 import { useHookWord } from "../../hooks/hookWords";
 import { useTranslation } from "react-i18next";
 import { ExplanationPopup } from "../../components/explanPop";
@@ -46,6 +42,22 @@ const Words = () => {
         const char = value.target.value
         setFilterAlphabetKh(char && char === "null"? null : char)
     }
+    
+    useEffect(() => {
+        if (isExplanetion) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden'; // Added this line
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = ''; // Added this line
+        }
+
+        // Cleanup function to reset overflow when component unmounts or isExplanetion changes
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = ''; // Added this line
+        };
+    }, [isExplanetion]);
 
     const randerWords = () => {
         if(isLoading){
@@ -81,9 +93,29 @@ const Words = () => {
                                 <div>
                                     <span className="text-xs">commend used</span>
                                     <div className="flex flex-row items-center justify-start gap-1">
-                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
-                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
-                                        <span className="px-3 rounded-full py-1.5" style={{ backgroundColor: '#106FBB' }}></span>
+                                        {word.comment_use === 25 &&
+                                         <span className=" bg-red-400 px-2 rounded-full py-1"></span>
+                                        }
+                                        {word.comment_use === 50 &&
+                                            <>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                            </>
+                                        }
+                                        {word.comment_use === 75&&
+                                            <>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                            </>
+                                        }
+                                        {word.comment_use === 100&&
+                                            <>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                            </>
+                                        }
                                     </div>
                                 </div>
                                 <button onClick={()=>HandleExplanation(word.id)}
@@ -140,19 +172,16 @@ const Words = () => {
                 {t("homePage.kui")}
                 <span style={{color:'#106FBB'}} className=" caption-top"> {t("header.alphabeted")}</span>
                 <p className="pt-4">
-                    Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
-                    Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem 
-                    IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
-                    IpsumLorem IpsumLorem Ipsum
+                  {t("wordPage.header")}
                 </p>
             </h2>
           </div>
           <div className="container">
-           <WordsPopUpSlider />
+           <WordsPopUpSlider  HandleExplanation={HandleExplanation} setIsExplanetion={setIsExplanetion}/>
           </div>
          
          {isExplanetion && targetExplan.length !== 0 && 
-                <ExplanationPopup data={targetExplan}/>
+            <ExplanationPopup data={targetExplan} setIsExplanetion={setIsExplanetion}/>
          }
           
 
@@ -160,8 +189,8 @@ const Words = () => {
             <h3 className=" capitalize">{t("homePage.explore")} {t("homePage.words")}</h3>
             <div className=" px-2 py-1 pb-2 border-b-2 flex w-full flex-row items-end lg:items-center text-xs md:text-sm  lg:text-md justify-between gap-1 md:gap-6 ">
                 <div className="flex flex-col items-start justify-around gap-3">
-                    <span><b>Filter Category</b></span>
-                    <select onChange={ (value)=>handleCategorySelection(value) } className=" 
+                    <span className=" capitalize"><b>{t("homePage.filter")} {t("homePage.category")}</b></span>
+                     <select onChange={ (value)=>handleCategorySelection(value) } className=" 
                              text-gray-900 
                              border border-spacing-1
                              text-sm 
@@ -177,7 +206,7 @@ const Words = () => {
                              capitalize
                              h-10
                         ">
-                       <option value={'null'}>All</option>
+                       <option value={'null'}>{t("homePage.all")}</option>
                        {CategoriesOpj?.map((category, index) => {
                          return (
                             <option value={category.id} key={category.id}>{ category.name }</option>
@@ -188,7 +217,7 @@ const Words = () => {
                     </select>
                 </div>
                 <div className="flex flex-col items-start justify-around gap-3">
-                    <span><b>Filter Alphabeted (English)</b></span>
+                    <span className=" capitalize"><b>{t("homePage.filter")} {t("header.alphabeted")} ({t("header.menue_text.english")})</b></span>
                     <select onChange={ (value)=>haleEnAlphabetSelection(value) }
                     className=" 
                              text-gray-900 
@@ -205,7 +234,7 @@ const Words = () => {
                              dark:focus:border-blue-500
                              h-10
                         ">
-                        <option value={"null"}>All</option>
+                        <option value={"null"} >{t("homePage.all")}</option>
                         {Alphabet?.map((char, index) => {
                                 return <option value={ char } key={index + 1}>{ char }</option>
                           })
@@ -213,7 +242,7 @@ const Words = () => {
                     </select>
                 </div>
                 <div className="flex flex-col items-start justify-around gap-3">
-                    <span><b>Filter Alphabeted (Khmer)</b></span>
+                    <span><b>{t("homePage.filter")} {t("header.alphabeted")} ({t("header.menue_text.khmer")})</b></span>
                     <select onChange={ (value)=>handleKhAlphabetSelection(value) }  class="
                         text-gray-900 
                         border border-spacing-1
@@ -229,7 +258,7 @@ const Words = () => {
                         dark:focus:border-blue-500
                           h-10
                     ">
-                        <option value={"null"}>All</option>
+                        <option value={"null"}>{t("homePage.all")}</option>
                         {KhAlphabet?.map((char, index) => {
                                     return <option value={ char.char_name } key={index + 1}>{ char.char_name }</option>
                             })

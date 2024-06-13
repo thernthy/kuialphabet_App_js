@@ -5,7 +5,7 @@ import './style.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useCategory } from "../../hooks/hookCategories";
-const ServiceComponents = ({t}) => {
+const ServiceComponents = ({t, i18n}) => {
     const {data} = useCategory()
     const renderCategories = () => {
       if(data && data.length === 0){
@@ -31,21 +31,21 @@ const ServiceComponents = ({t}) => {
                     category.category_title === "geographical" ? 'tp-sv-color-6' : ''
                 } flex-grow`}>
                     <div className={`tpservice__icon ${
-                        category.category_title === "common words" ||
-                        category.category_title === "traditional practices" ? 'tpservice__icon' :
-                        category.category_title === "religious or spiritual" ? 'tpservice__icon-4' :
-                        category.category_title === "food and cuisine" ||
-                        category.category_title === "emotional and psychological" ||
-                        category.category_title === "cultural" ? 'tpservice__icon-2' :
-                        category.category_title === "art and craft terms" ||
-                        category.category_title === "historical" ||
-                        category.category_title === "occupations and trades" ? 'tpservice__icon-3' :
-                        category.category_title === "nature and environment" ||
-                        category.category_title === "family and kinship" ? 'tpservice__icon-5' :
-                        category.category_title === "social customs and etiquette" ||
-                        category.category_title === "education and learning" ||
-                        category.category_title === "clothing and attire" ||
-                        category.category_title === "geographical" ? 'tpservice__icon-6' : ''
+                        category.category_title_en === "common words" ||
+                        category.category_title_en === "traditional practices" ? 'tpservice__icon' :
+                        category.category_title_en === "religious or spiritual" ? 'tpservice__icon-4' :
+                        category.category_title_en === "food and cuisine" ||
+                        category.category_title_en === "emotional and psychological" ||
+                        category.category_title_en === "cultural" ? 'tpservice__icon-2' :
+                        category.category_title_en === "art and craft terms" ||
+                        category.category_title_en === "historical" ||
+                        category.category_title_en === "occupations and trades" ? 'tpservice__icon-3' :
+                        category.category_title_en === "nature and environment" ||
+                        category.category_title_en === "family and kinship" ? 'tpservice__icon-5' :
+                        category.category_title_en === "social customs and etiquette" ||
+                        category.category_title_en === "education and learning" ||
+                        category.category_title_en === "clothing and attire" ||
+                        category.category_title_en === "geographical" ? 'tpservice__icon-6' : ''
                     } flex flex-col items-center justify-start`}>
                         {/* <FontAwesomeIcon icon={faPlay} /> */}
                         <img src={`${process.env.REACT_APP_BASED_URL}storage/${category.category_photo}`} className="pt-1.5" style={{ width: '40px' }} />
@@ -53,7 +53,10 @@ const ServiceComponents = ({t}) => {
                     <div className="tpservice__title">
                         <h4 className="tp-sv-title text-xs">
                             <Link to="/common-words" className="text-white no-underline">
-                                {category.category_title}
+                              {i18n?.language === "en" && 
+                                category.category_title_en
+                              }
+                              {i18n?.language === "kh" && category.category_title_kh}
                             </Link>
                         </h4>
                     </div>

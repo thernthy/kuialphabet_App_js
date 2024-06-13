@@ -9,7 +9,7 @@ export const useCategory = () => {
 
     const fetchGenres = async () => {
         const response = await HttpClient.post(`categorieslist?page=1`);
-        console.log(response.data.data)
+        //console.log(response.data.data)
         return response.data.data;
     };
 

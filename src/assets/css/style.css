@@ -40,9 +40,9 @@
   /**
   @font family declaration
   */
-  --tp-ff-body: 'Archivo', sans-serif;;
-  --tp-ff-heading: 'Archivo', sans-serif;;
-  --tp-ff-p: 'Archivo', sans-serif;;
+  --tp-ff-body: "Kantumruy Pro", sans-serif;
+  --tp-ff-heading: "Kantumruy Pro", sans-serif;
+  --tp-ff-p: "Kantumruy Pro", sans-serif;
   --tp-ff-fontawesome: Font Awesome 5 Pro;
   /**
   @color declaration
@@ -66,13 +66,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Kantumruy Pro", sans-serif;
 }
 
 /*---------------------------------
 	typography css start 
 ---------------------------------*/
 body {
-  font-family: var(--tp-ff-body);
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   font-size: 14px;
   font-weight: 400;
   color: var(--tp-text-body);
@@ -91,7 +95,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--tp-ff-heading);
   color: var(--tp-common-black);
   margin-top: 0px;
   font-weight: 700;
@@ -101,6 +104,14 @@ h6 {
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, p, b, span, div, ul, li, a {
+  font-family: "Kantumruy Pro", sans-serif !important;
 }
 .tp-main-menu ul li a.flex{
   display: flex;
@@ -139,7 +150,6 @@ ul {
 }
 
 p {
-  font-family: var(--tp-ff-p);
   font-size: 15px;
   font-weight: 400;
   color: var(--tp-text-p);
@@ -669,9 +679,9 @@ input[type=color] {
   font-size: 15px;
   font-weight: 700;
   color: var(--tp-common-white);
-  background: var(--tp-theme-2);
-  height: 65px;
-  line-height: 65px;
+  background: #106FBB;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
   padding: 0 50px;
   position: relative;
@@ -1256,7 +1266,7 @@ input[type=color] {
   background-color: var(--tp-common-black);
   z-index: 9999;
   transition: 1s;
-  padding: 40px;
+  padding:0 40px;
   overflow-y: scroll;
   scrollbar-width: none;
   opacity: 0;
@@ -1460,7 +1470,6 @@ input[type=color] {
 .tp-custom-accordio .accordion-buttons::after {
   position: absolute;
   content: "\f063";
-  font-family: "Font Awesome 5 Pro";
   background-image: none;
   top: 45px;
   right: 45px;
@@ -1667,7 +1676,6 @@ input[type=color] {
 }
 .tp-main-menu ul li.hasdropdown::after {
   content: "\f107";
-  font-family: "Font Awesome 5 Pro";
   font-size: 15px;
   color: var(--tp-common-white);
   font-weight: 400;
@@ -2361,6 +2369,14 @@ input[type=color] {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-arrow-style button.slick-prev {
     left: 30px;
+  }
+}
+@media (max-width:500){
+  .slider-arrow-style button.slick-prev {
+   left: 0;
+  }
+  .slider-arrow-style button.slick-next {
+    right: 0;
   }
 }
 
@@ -3967,14 +3983,15 @@ input[type=color] {
   font-size: 30px;
   font-weight: 600;
   color: var(--tp-common-black);
-  padding-bottom: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .contactform__input input {
   width: 100%;
   border-radius: 10px;
   border: 1px solid var(--tp-border-1);
-  padding: 25px 20px;
+  padding: 15px 10px;
   background-color: #F0F0F0;
   margin-bottom: 10px;
   font-size: 15px;
@@ -4623,7 +4640,6 @@ input[type=color] {
   margin-bottom: 10px;
   line-height: 80px;
   cursor: pointer;
-  font-family: inherit;
   font-size: 15px;
   font-weight: 500;
   text-transform: capitalize;
@@ -4635,7 +4651,6 @@ input[type=color] {
   border: 0;
   content: "\f107";
   top: 0;
-  font-family: "Font Awesome 5 Pro";
   position: absolute;
   display: block;
   height: 0px;
@@ -5635,7 +5650,6 @@ input[type=color] {
   box-sizing: border-box;
   content: "\f00c";
   position: absolute;
-  font-family: var(--tp-ff-fontawesome);
   font-size: 10px;
   color: var(--tp-common-white);
   top: 46%;

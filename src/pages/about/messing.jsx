@@ -1,4 +1,4 @@
-export const Messing = () => {
+export const Messing = ({t}) => {
     return (
         <div className="tp-mission-area grey-bg pt-120 pb-120">
         <div className="container">
@@ -10,21 +10,19 @@ export const Messing = () => {
                           <div className="nav tp-mission-tab " id="nav-tab" role="tablist">
                              <button className="nav-links active" id="nav-Mission-tab" data-bs-toggle="tab"
                                 data-bs-target="#Mission" type="button" role="tab" aria-controls="nav-Mission-tab"
-                                aria-selected="true"><span>Our Mission</span>
+                                aria-selected="true"><span className="capitalize">{t("aboutPage.our_mission")}</span>
                              </button>
                              <button className="nav-links" id="nav-Vission-tab" data-bs-toggle="tab"
                                 data-bs-target="#Vission" type="button" role="tab" aria-controls="nav-Vission-tab"
-                                aria-selected="true"><span>Our
-                                   Vision</span>
+                                aria-selected="true"><span className="capitalize">{t("aboutPage.our_vision")}</span>
                              </button>
                              <button className="nav-links" id="nav-History-tab" data-bs-toggle="tab"
                                 data-bs-target="#History" type="button" role="tab" aria-controls="nav-History-tab"
-                                aria-selected="true"><span>Our
-                                   History</span>
+                                aria-selected="true"><span className="capitalize">{t("aboutPage.our_history")}</span>
                              </button>
                              <button className="nav-links" id="nav-Goal-tab" data-bs-toggle="tab" data-bs-target="#Goal"
-                                type="button" role="tab" aria-controls="nav-Goal-tab" aria-selected="true"><span>Our
-                                   Goal</span>
+                                type="button" role="tab" aria-controls="nav-Goal-tab" aria-selected="true"><span className="capitalize">
+                                 {t("aboutPage.our_goal")}</span>
                              </button>
                           </div>
                        </nav>
@@ -52,7 +50,7 @@ export const Messing = () => {
                        </div>
                        <div className="col-xl-6 col-lg-6">
                           <div className="tpmission__thumb">
-                             <img src={require("../../assets/img/mission/mission-1.jpg")} alt=""/>
+                             <img src={require("./img/categories (4).jpg")} alt=""/>
                           </div>
                        </div>
                     </div>
@@ -77,7 +75,7 @@ export const Messing = () => {
                        </div>
                        <div className="col-xl-6">
                           <div className="tpmission__thumb">
-                             <img src={require("../../assets/img/mission/mission-2.jpg")} alt=""/>
+                             <img src={require("./img/categories (5).jpg")} alt=""/>
                           </div>
                        </div>
                     </div>
@@ -102,7 +100,7 @@ export const Messing = () => {
                        </div>
                        <div className="col-xl-6">
                           <div className="tpmission__thumb">
-                             <img src={require("../../assets/img/mission/mission-3.jpg")} alt=""/>
+                             <img src={require("./img/categories (1).JPG")} alt=""/>
                           </div>
                        </div>
                     </div>
@@ -126,7 +124,7 @@ export const Messing = () => {
                        </div>
                        <div className="col-xl-6">
                           <div className="tpmission__thumb">
-                             <img src={require("../../assets/img/mission/mission-4.jpg")} alt=""/>
+                             <img src={require("./img/kuiMeeting.jpg")} alt=""/>
                           </div>
                        </div>
                     </div>

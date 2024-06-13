@@ -16,20 +16,42 @@ const GoogleMap = ({t}) => {
                 { x: 56, y: 70, content: "Molestie nunc non blandit massa" },
                 { x: 45, y: 84, content: "Excepteur sint occaecat cupida" }
             ];
-
+        
             const spotsMap = document.querySelector(".spots_map");
-
+        
+            for (let i = 0; i < spots.length; i++) {
+                const hotSpot = document.createElement("div");
+                hotSpot.classList.add("hot-spot");
+                spotsMap.append(hotSpot);
+        
+                const speechBubble = document.createElement("span");
+                speechBubble.classList.add("speech-bubble");
+                spotsMap.append(speechBubble);
+            }
+        
             function updateHotSpots(spots) {
                 const hotSpots = document.querySelectorAll(".hot-spot");
                 const speechBubbles = document.querySelectorAll(".speech-bubble");
             
-                // Use a regular for loop for better control
+                // Ensure hotSpots and speechBubbles arrays have the same length as spots
+                if (hotSpots.length !== spots.length || speechBubbles.length !== spots.length) {
+                    console.error("Mismatch in spots, hotSpots, or speechBubbles array lengths");
+                    return;
+                }
+            
                 for (let i = 0; i < spots.length; i++) {
-                    const hotSpot = hotSpots[i];
                     const { x, y, content } = spots[i];
-                    hotSpot.style.top = `${y}%`;
-                    hotSpot.style.left = `${x}%`;
-                    speechBubbles[i].textContent = content + i;
+            
+                    // Check if hotSpot and speechBubble elements are available
+                    if (!hotSpots[i] || !speechBubbles[i]) {
+                        console.error(`hotSpot or speechBubble not found at index ${i}`);
+                        continue;
+                    }
+            
+                    hotSpots[i].style.top = `${y}%`;
+                    hotSpots[i].style.left = `${x}%`;
+                    speechBubbles[i].textContent = content;
+            
                     if (window.innerWidth >= 992) {
                         speechBubbles[i].style.top = `${y}%`;
                         speechBubbles[i].style.left = `${x}%`;
@@ -37,24 +59,16 @@ const GoogleMap = ({t}) => {
                         speechBubbles[i].style.top = '50%';
                         speechBubbles[i].style.left = '50%';
                     }
-
+            
                     document.body.addEventListener("click", (e) => {
-                        e.target === hotSpot ? speechBubbles[i].classList.add("active") : speechBubbles[i].classList.remove("active");
+                        e.target === hotSpots[i] ? speechBubbles[i].classList.add("active") : speechBubbles[i].classList.remove("active");
                     });
                 }
             }
-
-            for (let i = 0; i < spots.length; i++) {
-                const hotSpot = document.createElement("div");
-                hotSpot.classList.add("hot-spot");
-                spotsMap.append(hotSpot);
-
-                const speechBubble = document.createElement("span");
-                speechBubble.classList.add("speech-bubble");
-                spotsMap.append(speechBubble);
-            }
+            
+        
             updateHotSpots(spots);
-
+        
             window.addEventListener("load", () => updateHotSpots(spots));
             window.addEventListener("resize", () => updateHotSpots(spots));
         };

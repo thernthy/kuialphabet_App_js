@@ -5,6 +5,8 @@ import AuthLayout from "../layouts/authLayout";
 import NotFound from '../components/NotFound'
 import Words from "../pages/words";
 import { About } from "../pages/about";
+import { Faqs } from "../pages/faqs";
+import { WordDetail } from "../pages/detail";
 
 const AllRoutes = () => {
     return (
@@ -23,6 +25,16 @@ const AllRoutes = () => {
                 exact
                 path={paths.ABOUT}
                 element={<About />}
+            />
+            <Route
+                exact
+                path={paths.FAQS}
+                element={<Faqs />}
+            />
+            <Route
+                exact
+                path={paths.DetailWord}
+                element={<WordDetail />}
             />
             <Route element={<AuthLayout />} >
             </Route>

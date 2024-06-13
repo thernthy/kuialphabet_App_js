@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { AboutContent } from "./about_content"
 
-export const LearnSection  = () => {
+export const LearnSection  = ({t}) => {
     return (
         <>
-            <AboutContent />
+            <AboutContent t={t} />
             <div className="tp-counter-area  tp-counter-bg" data-background="assets/img/fun-fact/counter-shape-bg.png">
                 <div className="container">
                 <div className="row">

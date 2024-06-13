@@ -12,8 +12,21 @@
         "alphabeted" : "alphabeted"
     },
 
+
+
     "homePage": {
+      "cantactForm":{
+        "our_team":"Our team",
+        "contact":"Contact",
+        "If you have any concern or want to support us!":"If you have any concern or want to support us!",
+        "your_name":"Your Name",
+        "your_email":"Your Email",
+        "email_us":"Email Us",
+        "enter_message":"Enter Message",
+        "submit":"Submit"
+      },
       "search":"search",
+      "no_result":"no result",
       "words":"words",
       "word":"word",
       "contact":"contact",
@@ -31,6 +44,8 @@
       "ourgallery" : "ourgallery",
       "kui" : "kui",
       "in cambodia": "in cambodia",
+      "category":"category",
+      "filter": "filter",
       "community": "community",
       "explore": "explore",
       "our":"our",
@@ -40,6 +55,62 @@
       "feedback": "feedback",
       "client" : "client",
       "client’s give us many reviews for us.":"client’s give us many reviews for us.",
-      "explanation":"explanation"
+      "explanation":"explanation",
+      "explain_in_english":"explain in english",
+      "explain_in_khmer":"explain in khmer",
+      "all":"all",
+      "kui_atreu": "kui atreu",
+      "kui_at": "kui a t",
+      "content": {
+        "home_about": "Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis nisl aliquip ex ea commodo n ullamcorper suscipit loborti excommodo Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti",
+        "home_community": "Molestie nunc non blandit massa. Lacus sed viverra tellus in hac habitasse platea. Velit egestas dui id ornare arcu. Sapien pellentesque habitant morbi tristique senectus et netus. Ut consequat semper viverra nam libero. Convallis aenean et tortor",
+        "home_email_us": "If you have any concern or want to support us!"
+      }
+    },
+
+
+    "wordPage": {
+      "header": "Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
+      "english_pronunciation": "english pronunciation"
+    },
+
+
+  
+    "aboutPage":{
+      "about_kui_alphabeted":"about kui alphabeted",
+      "lorem":"lorem",
+      "lorem_explain": "Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit lobort Exerci tation ullamcorper suscipit lobortis nisl aliquip",
+      "list":{
+        "we_are_award_winning_company":"We are Award Winning Company",
+        "refreshing_to_get_such_a_personal_touch":"Refreshing to get such a personal touch",
+        "easy_and_first_process":"Easy and first process"
+      },
+      "change_the_way_but_life_insurance":"Change the way but life Insurance",
+      "change_the_way_content":"Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis",
+      "our_mission": "our mission",
+      "our_vision": "our vision",
+      "our_history": "our history",
+      "our_goal": "our goal"
+    },
+
+    "faqsPage":{
+      "faqs": "FAQs",
+      "fa_explain_content":"Frequently Asked question about us",
+      "some_answered_about_our_organization":"Some answered about our organization",
+      "explain_content": "Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" 
+    },
+
+
+    "Footer":{
+       "OUR_ORGANIZATION": "Our Organization",         
+       "Get_KUI_Dictionary_App": "Dictionary App",
+       "about_organization": "About Organization",
+       "about_kuipedia": "About Kuipedia",
+       "contact_info": "Contact Info",
+       "location": "Location",
+       "phone": "Phone",
+       "email": "Email"
+
     }
+    
 }

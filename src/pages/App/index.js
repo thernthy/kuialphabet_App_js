@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Link } from "react-router-dom";
+import { useEffect, useRef, useState } from 'react';
+import { BrowserRouter, Link} from "react-router-dom";
 import AuthProvider from "../../contexts/auth-provider";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -23,12 +23,13 @@ import '../../assets/globle.css'
 import englishLogo from"../../assets/img/lag/en.svg"
 import KhmerFlag from"../../assets/img/lag/cambodia.svg"
 import { HeaderIcon } from '../../db/menue_logo';
-import $ from 'jquery';
 import { useTranslation } from 'react-i18next';
 
 const App = () => {
+  const [modleMenu, setModleMenu] = useState(false)
   const [loading, setLoading] = useState(true);
   const [languechageModel, setLanguechageModel] = useState(false)
+  const menuRef = useRef(null);
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
@@ -41,6 +42,30 @@ const App = () => {
   const languageChage = (language) => {
     i18n.changeLanguage(language)
   }
+
+
+  const handleModleMenue = () => {
+    setModleMenu(!modleMenu);
+  };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setModleMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    if (modleMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [modleMenu]);
+
 
 
   return loading ? (
@@ -65,8 +90,8 @@ const App = () => {
                       </div>
                       <div className="col-xxl-6 col-xl-7 col-lg-8 d-none d-lg-block">
                           <div className="tp-main-menu">
-                            <nav id="mobile-menu">
-                                <ul className='pb-0'>
+                            <nav id="mobile-menu" className={``}>
+                                <ul className='pb-0' style={{transform:"translateY(.5rem)"}}>
                                   <li >
                                     <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.home} /></span>
@@ -86,7 +111,7 @@ const App = () => {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link to={'/'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
+                                    <Link to={'/question'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.faqs} /></span>
                                       {t("header.menue_text.faqs")}
                                     </Link>
@@ -97,7 +122,7 @@ const App = () => {
                       </div>
                       <div className="col-xxl-4 col-xl-3 col-lg-2 col-md-6 col-6">
                           <div className="tp-header-right d-flex align-items-center justify-content-end">
-                            <SearchForm t={t} />
+                            <SearchForm t={t} i18n={i18n} />
                             <div className="tp-header-button d-none d-md-block relative">
                                 <div className="rounded-full  bg-white flex flex-row items-center justify-around px-2 py-1.5 gap-1
                                 " onClick={handleLangueChageModel}>
@@ -111,7 +136,7 @@ const App = () => {
                                   </div>
                                 </div>
                                 {languechageModel &&
-                                  <ul className=' fixed top-22 mt-2 flex flex-col gap-1 bg-blue-600 p-0 capitalize items-start justify-around right-4 min-h-16'>
+                                  <ul style={{zIndex:'10000'}} className=' fixed top-22 mt-2 flex flex-col gap-1 bg-blue-600 p-0 capitalize items-start justify-around right-4 min-h-16'>
                                     <li onClick={ ()=> languageChage ('en') } 
                                       className={`
                                         flex flex-row items-center gap-2 justify-start cursor-pointer 
@@ -143,8 +168,8 @@ const App = () => {
                                   </ul>
                                 }
                             </div>
-                            <div className="tp-toggle-bar d-lg-none">
-                                <a className="tp-menu-bar" href="javascript:void(0)"><i className="fas fa-bars"></i></a>
+                            <div className="tp-toggle-bar d-lg-none" ref={menuRef} onClick={handleModleMenue}>
+                                <i className="fas fa-bars px-2 bg-blue-600 py-2 ml-2 text-white" ></i>
                             </div>
                           </div>
                       </div>
@@ -152,9 +177,9 @@ const App = () => {
                 </div>
               </div>
               <div className="tp-offcanvas-area d-lg-none">
-              <div className="tpoffcanvas" data-background="assets/img/slider/slider-shape-3-1.png">
-                <div className="tpoffcanvas__close-btn">
-                    <button className="close-btn"><i className="fal fa-times"></i></button>
+              <div className={`tpoffcanvas ${modleMenu? 'opened':''}`} style={{backgroundImage: `url(${require("../../assets/img/menue_icon/slider-shape-3-1.png")})`}}>
+                <div className="tpoffcanvas__close-btn mb-4" ref={menuRef} onClick={handleModleMenue}>
+                    <button className="close-btn" ><i className="fal fa-times"></i></button>
                 </div>
                 <div className="tpoffcanvas__logo">
                     <a href="index.html">
@@ -162,8 +187,29 @@ const App = () => {
                     </a>
                 </div>
                 <div className="tpoffcanvas-social">
-                <div className="tpcanvas-wrapper">
-                    <div className="mobile-menu"></div>
+                <div className="tpcanvas-wrapper" ref={menuRef}>
+                    <div className="mobile-menu mean-container">
+                      <div>
+                        <div className='mean-bar'>
+                          <nav className='mean-nav'>
+                            <ul>
+                              <li className='border-b-2'>
+                                <Link to={'/'}>{t("header.menue_text.home")}</Link>
+                              </li>
+                              <li className='border-b-2'>
+                                <Link to={'/words'}>{t("header.menue_text.words")}</Link>
+                              </li>
+                              <li className='border-b-2'>
+                                <Link to={'/about us'}>{t("header.menue_text.about_us")}</Link>
+                              </li>
+                              <li className='border-b-2'>
+                                <Link to={'/question'}>{t("header.menue_text.faqs")}</Link>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
                     <div className="tpoffcanvas__content">
                       <span>Ready to work with us?</span>
                       <a href="mailto:Edeningmail@gmail.com">insurea@gmail.com</a>

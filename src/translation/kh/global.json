@@ -13,7 +13,18 @@
     },
 
     "homePage": {
+      "cantactForm":{  
+        "our_team":"ពួកយើង",
+        "contact":"ទំនាក់ទំនងមកកាន់",
+        "If you have any concern or want to support us!":"ប្រសិនបើអ្នកមានមតិយោបល់ ឬចម្ងល់បន្ថែម",   
+        "your_name":"ឈ្មោះ",
+        "your_email":"អ៊ីម៉ែល",
+        "email_us":"អ៊ីម៉ែលមកកាន់យើង",
+        "enter_message":"សរសេរសារផ្សេងៗនៅទីនេះ",
+        "submit":"បញ្ជូន"
+      },
         "search":"ស្វែងរក",
+        "no_result":"គ្មានលទ្ធផល",
         "words":"ពាក្យ",
         "word":"ពាក្យ",
         "contact":"ទំនាក់ទំនង",
@@ -31,6 +42,8 @@
         "ourgallery" : "វិចិត្រសាលរបស់យើង។",
         "kui" : "កួយ",
         "in cambodia": "ក្នុងប្រទេសកម្ពុជា",
+        "category":"ប្រភេទ",
+        "filter": "តម្រង",
         "community": "សហគមន៍",
         "explore":"រុករក",
         "our":"របស់យើង",
@@ -40,6 +53,55 @@
         "feedback": "មតិកែលម្អ",
         "client" : "អតិថិជន",
         "client’s give us many reviews for us.":"អតិថិជនផ្តល់ឱ្យយើងនូវការពិនិត្យជាច្រើនសម្រាប់ពួកយើង។",
-        "explanation":"ការពន្យល់"
-      }
+        "explanation":"ការពន្យល់",
+        "explain_in_english":"ពន្យល់ជាភាសាអង់គ្លេស",
+        "explain_in_khmer":"ពន្យល់ជាភាសាខ្មែរ",
+        "all":"ទាំអស់",
+        "kui_atreu": "កួយអ្ទ្រើ",
+       "kui_at": "កួយ​អ្ទ័",
+        "content": {
+            "home_about": "Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis nisl aliquip ex ea commodo n ullamcorper suscipit loborti excommodo Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti",
+            "home_community": "Molestie nunc non blandit massa. Lacus sed viverra tellus in hac habitasse platea. Velit egestas dui id ornare arcu. Sapien pellentesque habitant morbi tristique senectus et netus. Ut consequat semper viverra nam libero. Convallis aenean et tortor",
+            "home_email_us": "If you have any concern or want to support us!"
+        }
+      },
+
+      "wordPage": {
+        "header": "Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
+        "english_pronunciation": "ការបញ្ចេញសំឡេងភាសាអង់គ្លេស"
+      },
+
+    "aboutPage":{
+            "about_kui_alphabeted":"អំពីគេហទំព័រអក្ខរក្រមកួយ", 
+            "lorem": "ឡូរ៉េម",
+            "lorem_explain": "khmer Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit lobort Exerci tation ullamcorper suscipit lobortis nisl aliquip",
+            "list":{
+            "we_are_award_winning_company":"khmer We are Award Winning Company",
+            "refreshing_to_get_such_a_personal_touch":"khmer Refreshing to get such a personal touch",
+            "easy_and_first_process":"khmer Easy and first process"
+        },
+        "change_the_way_but_life_insurance":"khmer Change the way but life Insurance",
+        "change_the_way_content":"Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis",
+        "our_mission": "បេសកកម្ម",
+        "our_vision": "ចក្ខុវិស័យ",
+        "our_history": "ប្រវត្តិរបស់យើង",
+        "our_goal": "គោលដៅរបស់យើង"
+    },
+     
+    "faqsPage":{
+        "faqs": "សំណួរទូទៅ",
+        "fa_explain_content":"Frequently Asked question about us",
+        "some_answered_about_our_organization":"សំណួរមួយចំនួនអំពីយើង",
+        "explain_content": "khmer Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" 
+      },
+    "Footer":{
+        "OUR_ORGANIZATION": "អំពីអង្គការ​",         
+        "Get_KUI_Dictionary_App": "ទាញយកវចនានុក្រមកួយ ",
+        "contact_info": "ព័ត៌មានទំនាក់ទំនង",
+        "about_organization": "អំពីអង្គការ",
+        "about_kuipedia": "អំពី កួយផេឌៀរ (Kuipedia)",
+        "location": "ទីតាំង",
+        "phone": "លេខទូរស័ព្ទ",
+        "email": "អ៊ីម៉ែល"
+     }
 }

@@ -1,4 +1,4 @@
-export const AboutSection = () =>  {
+export const AboutSection = ({t}) =>  {
     return (
         <div className="tpabout__area pt-130 pb-100">
         <div className="container">
@@ -11,11 +11,8 @@ export const AboutSection = () =>  {
               <div className="col-xl-6 col-lg-6">
                  <div className="tpabout__section-title-box">
                     <h4 className="tp-section-subtitle">About us</h4>
-                    <h3 className="tp-section-title pb-20">Change the way but <br /> life Insurance</h3>
-                    <p className="text-black">Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse
-                       quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse
-                       quat.Exerci tationlobortis nisl aliquip ex ea commodo
-                       n ullamcorper suscipit loborti excommodo</p>
+                    <h3 className="tp-section-title pb-20">{t("aboutPage.change_the_way_but_life_insurance")}</h3>
+                    <p className="text-black">{t("aboutPage.change_the_way_content")}</p>
                  </div>
               </div>
            </div>

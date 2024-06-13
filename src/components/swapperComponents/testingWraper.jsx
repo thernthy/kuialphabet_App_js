@@ -2,14 +2,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const  SwapperJas = ({img_Data}) => {
   return (
     <Swiper
+      modules={[Pagination, Autoplay]}
       spaceBetween={50}
+      pagination={{ clickable: true }}
       loop={true}
       slidesPerView={3}
-
+      autoplay={{
+         delay: 5000, // 5000ms = 5s
+         disableOnInteraction: false,
+       }}
     >
       {img_Data?.map((img, index) => {
          return(
@@ -18,15 +24,7 @@ const  SwapperJas = ({img_Data}) => {
                   <div className="fix">
                         <img src={img.img} alt=""/>{/*defual Class tpcaseitem__thumb  */}
                   </div>
-                  <div className="tpcaseitem__content">
-                     <div className="tpcase-info p-relative">
-                        <h4 className="tp-case-title">
-                           <a href="portfolio-details.html">{img.title}</a> </h4>
-                        <div className="tp-case-icon">
-                           <a href="portfolio-details.html"><i className="fal fa-arrow-right"></i></a>
-                        </div>
-                     </div>
-                  </div>
+
             </div>
          </SwiperSlide>
          )

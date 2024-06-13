@@ -3,7 +3,9 @@ import { Supporters } from "../../db/supporter_logo"
 import { Buttonbg } from "../../template/button"
 import commentShapeTwo from '../../assets/img/slider/03_Shape.png';
 import Components from "../comment"
+import { useTranslation } from "react-i18next";
 const Footer = () => {
+    const { t } = useTranslation("global");
     return (
         <footer>
             {/* <Components /> */}
@@ -14,10 +16,14 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-xl-12">
                         <div className="tpfooter d-flex justify-content-between align-items-center">
-                        <div className="tpfooter__logo">
+                        <div className="tpfooter__logo flex flex-row  items-start gap-2">
                             <a href="index.html">
-                                <img src={Supporters.Company} alt={Supporters.Company} className="h-20 rounded-full bg-white"/>
-                            </a>
+                                <img src={Supporters.Company} alt={Supporters.Company} className="h-12 rounded-full bg-white"/>
+                            </a> 
+                            <div>
+                                <h6 className="text-white">KUI Alphabeted</h6>
+                                <p>Website</p>
+                            </div>
                         </div>
                         <div className="tpfooter__social">
                             <a href="#"><i className="fab fa-facebook-f"></i></a>
@@ -34,12 +40,12 @@ const Footer = () => {
                         <div className="col-lg-2 col-md-4">
                         <div className="tp-footer-widget mb-30">
                             <div className="tp-footer-widget__title">
-                                <h4 className="tp-footer-title">Our Organization</h4>
+                                <h4 className="tp-footer-title">{t("Footer.OUR_ORGANIZATION")}</h4>
                             </div>
                             <div className="tp-footer-widget__list">
                                 <ul>
-                                    <li><a href="#">About Organization</a></li>
-                                    <li><a href="blog-details.html">About Kuipedia</a></li>
+                                    <li><a href="/">{t("Footer.about_organization")}</a></li>
+                                    <li><a href="#">{t("Footer.about_kuipedia")}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -47,12 +53,12 @@ const Footer = () => {
                         <div className="col-lg-2 col-md-4">
                         <div className="tp-footer-widget footer-space-2 mb-30">
                             <div className="tp-footer-widget__title">
-                                <h4 className="tp-footer-title">Our App</h4>
+                                <h4 className="tp-footer-title">{t("Footer.Get_KUI_Dictionary_App")}</h4>
                             </div>
                             <div className="tp-footer-widget__list">                             
                                 <ul>
-                                    <li><a href="#">KUI Dictionary</a></li>
-                                    <li><a href="#">Home Insurance</a></li>
+                                    <li><a href="#"><img src={require("../../assets/img/footer/pngegg_1.png")} /></a></li>
+                                    {/* <li><a href="#">Home Insurance</a></li> */}
                                 </ul>
                             </div>
                         </div>
@@ -64,9 +70,9 @@ const Footer = () => {
                             </div>
                             <div className="tp-footer-widget__list">                            
                                 <ul className="w-full">
-                                    <li><a href="#">Location: Phumasia, Achar Leak Commune, Krong Stueng Sean, Kampong Thom</a></li>
-                                    <li><a href="tel:123 456">Phone: +855 123 456</a></li>
-                                    <li><a href="mailto:kuialphabeted@email.com">Email: kuialphabeted@email.com</a></li>
+                                    <li><a href="#">{t("Footer.location")}: Phumasia, Achar Leak Commune, Krong Stueng Sean, Kampong Thom</a></li>
+                                    <li><a href="tel:123 456">{t("Footer.phone")}: +855 123 456</a></li>
+                                    <li><a href="mailto:kuialphabeted@email.com">{t("Footer.email")}: kuialphabeted@email.com</a></li>
 
                                 </ul>
                             </div>

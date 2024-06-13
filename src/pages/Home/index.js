@@ -87,7 +87,7 @@ const Home = () => {
             </div>
             {/* about section end */}
             {/* category section start */}
-                <ServiceComponents t={t} />
+                <ServiceComponents t={t} i18n={i18n} />
             {/* category section end */}
             {/* category slider section start */}
 
@@ -109,7 +109,7 @@ const Home = () => {
              <GooGleMape t={t} />
             {/* google map section  ending */}
             {/* contact form section start */}
-             <ConatactForm />
+             <ConatactForm t={t} />
             {/* contact form section end */}
         </div>
         </main>
