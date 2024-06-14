@@ -19,8 +19,8 @@ const ContactForm = ({ t }) => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        setError(null);
+        //setIsSubmitting(true);
+        //setError(null);
         try {
             const response = await fetch('/contact/email', {
                 method: 'POST',
@@ -34,7 +34,7 @@ const ContactForm = ({ t }) => {
                 throw new Error('Network response was not ok');
             }
 
-            setSuccess(true);
+           // setSuccess(true);
             setFormData({
                 name: '',
                 email: '',
@@ -42,9 +42,9 @@ const ContactForm = ({ t }) => {
                 message: ''
             });
         } catch (error) {
-            setError('There was a problem with your submission. Please try again.');
+            //setError('There was a problem with your submission. Please try again.');
         } finally {
-            setIsSubmitting(false);
+            //setIsSubmitting(false);
         }
     };
 

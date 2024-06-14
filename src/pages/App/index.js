@@ -24,7 +24,7 @@ import englishLogo from"../../assets/img/lag/en.svg"
 import KhmerFlag from"../../assets/img/lag/cambodia.svg"
 import { HeaderIcon } from '../../db/menue_logo';
 import { useTranslation } from 'react-i18next';
-
+import ScrollToTop from '../../components/ScrollTotop';
 const App = () => {
   const [modleMenu, setModleMenu] = useState(false)
   const [loading, setLoading] = useState(true);
@@ -72,6 +72,7 @@ const App = () => {
     <Loading position={'fixed'} />
   ) : (
     <BrowserRouter>
+    <ScrollToTop />
     {/* h */}
       <AuthProvider>
             <header className=' fixed top-0 left-0 w-full' style={{zIndex:'1000'}}>

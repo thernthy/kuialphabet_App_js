@@ -49,7 +49,7 @@ const renderBanner = () => {
         return (
             <div key={index+1} className={`carousel-item ${index+1 === 1 && 'active'} h-96 lg:h-screen`}>
                 <div className="relative ">
-                    <div class="tp-slider-content-box text-center z-index-3 absolute left-1/2 top-20  sm:top-24 xl:top-40 -translate-x-1/2">
+                    <div class="tp-slider-content-box text-center z-index-3 absolute left-1/2 top-20  sm:top-24 xl:bottom-1/2 md:translate-y-1/2 -translate-x-1/2">
                             <h2 class="text-blue-600 md:text-2xl  lg:text-3xl leading-relaxed font-bold">
                                 {
                                  i18n.language === "kh"&&  banner?.title_kh 
