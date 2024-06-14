@@ -10,11 +10,11 @@ const GoogleMap = ({t}) => {
     useEffect(() => {
         const initializeMap = () => {
             const spots = [
-                { x: 20, y: 23, content:t("homePage.mape.kopong_thom")},
-                { x: 80, y: 25, content: t("homePage.mape.kopong_thom") },
-                { x: 63, y: 53, content: t("homePage.mape.kopong_thom") },
-                { x: 56, y: 70, content: "Molestie nunc non blandit massa" },
-                { x: 45, y: 84, content: "Excepteur sint occaecat cupida" }
+                { x: 20, y: 23, content:t("Siem Reap")},
+                { x: 80, y: 25, content: "Mondulkiri" },
+                { x: 63, y: 53, content: "coming soon" },
+                { x: 56, y: 70, content: "coming soon" },
+                { x: 45, y: 84, content: "coming soon" }
             ];
         
             const spotsMap = document.querySelector(".spots_map");
@@ -94,9 +94,7 @@ const GoogleMap = ({t}) => {
                 </div>
                 <div className="spots_info">
                     <p className="spots_info-text">
-                        Molestie nunc non blandit massa. Lacus sed viverra tellus in hac habitasse platea. Velit egestas dui id ornare
-                        arcu. Sapien pellentesque habitant morbi tristique senectus et netus. Ut consequat semper viverra nam libero.
-                        Convallis aenean et tortor
+                        {t("homePage.community_content")}
                     </p>
                     <div className="wrapper">
                         <div className="spots_info-number">

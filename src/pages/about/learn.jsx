@@ -5,7 +5,7 @@ export const LearnSection  = ({t}) => {
     return (
         <>
             <AboutContent t={t} />
-            <div className="tp-counter-area  tp-counter-bg" data-background="assets/img/fun-fact/counter-shape-bg.png">
+            {/* <div className="tp-counter-area  tp-counter-bg" data-background="assets/img/fun-fact/counter-shape-bg.png">
                 <div className="container">
                 <div className="row">
                     <div className="col-xl-3 col-lg-3 col-md-3">
@@ -46,7 +46,7 @@ export const LearnSection  = ({t}) => {
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

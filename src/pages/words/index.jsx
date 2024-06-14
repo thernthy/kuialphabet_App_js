@@ -167,7 +167,7 @@ const Words = () => {
     // }
     return (
         <>
-          <div className="px-2 py-4 mt-20 text-center w-6/12 mx-auto">
+          <div className="px-2 py-4 mt-20 text-center sm:w-6/12 mx-auto">
             <h2 className=" capitalize">
                 {t("homePage.kui")}
                 <span style={{color:'#106FBB'}} className=" caption-top"> {t("header.alphabeted")}</span>

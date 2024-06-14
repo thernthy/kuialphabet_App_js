@@ -112,9 +112,10 @@ const App = () => {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link to={'/question'} className='py-2 flex flex-row items-center justify-start gap-1 no-underline'>
+                                    <Link to={'/question'} className='py-2 flex flex-row items-center  justify-start gap-1 no-underline'>
                                       <span className='mx-2'><img src={HeaderIcon.faqs} /></span>
                                       {t("header.menue_text.faqs")}
+                                      
                                     </Link>
                                   </li>
                                 </ul>
@@ -122,7 +123,7 @@ const App = () => {
                           </div>
                       </div>
                       <div className="col-xxl-4 col-xl-3 col-lg-2 col-md-6 col-6">
-                          <div className="tp-header-right d-flex align-items-center justify-content-end">
+                          <div className="tp-header-right d-flex  align-items-center justify-content-end">
                             <SearchForm t={t} i18n={i18n} />
                             <div className="tp-header-button d-none d-md-block relative">
                                 <div className="rounded-full  bg-white flex flex-row items-center justify-around px-2 py-1.5 gap-1
@@ -151,7 +152,7 @@ const App = () => {
                                       </div>
                                       {t("header.menue_text.english")}
                                     </li>
-                                    <li onClick={ ()=> languageChage ('kh') } 
+                                    <li 
                                       className={`
                                       flex flex-row items-center gap-2 justify-start cursor-pointer
                                       px-2
@@ -161,10 +162,12 @@ const App = () => {
 
                                       }
                                       `}>
+                                        {/* onClick={ ()=> languageChage ('kh') }  */}
                                       <div className=''>
                                         <img src={KhmerFlag} />
                                       </div>
-                                      {t("header.menue_text.khmer")}
+                                      Soon
+                                      {/* {t("header.menue_text.khmer")} */}
                                     </li>
                                   </ul>
                                 }
@@ -184,7 +187,7 @@ const App = () => {
                 </div>
                 <div className="tpoffcanvas__logo">
                     <a href="index.html">
-                      <img src="assets/img/logo/logo.png" alt=""/>
+                      <img src={CompanyLogo} alt=""/>
                     </a>
                 </div>
                 <div className="tpoffcanvas-social">
@@ -221,10 +224,11 @@ const App = () => {
                 <div className="tpoffcanvas__social">
                     <h4 className="offcan-social-title">Follow Us</h4>
                     <div className="social-icon">
-                      <a href="#"><i className="fab fa-twitter"></i></a>
+                      {/* <a href="#"><i className="fab fa-twitter"></i></a> */}
                       <a href="#"><i className="fab fa-instagram"></i></a>
                       <a href="#"><i className="fab fa-facebook-square"></i></a>
-                      <a href="#"><i className="fab fa-dribbble"></i></a>
+                      <a href="#"><i className="fab fa-youtube"></i></a>
+                      {/* <a href="#"><i className="fab fa-dribbble"></i></a> */}
                     </div>
                 </div>
               </div>

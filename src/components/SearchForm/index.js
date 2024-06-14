@@ -42,7 +42,7 @@ const SearchForm = ({ t, i18n }) => {
   console.log('Search result data:', searchResultData);
 
   return (
-    <div className="position-relative">
+    <div className="position-relative mx-2">
       <div className="w-100 py-2 rounded-full bg-white px-3 gap-2"
         style={{
           display: 'flex',

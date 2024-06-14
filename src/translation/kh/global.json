@@ -1,16 +1,16 @@
 {
-    "header":{
-        "message":"សូមស្វគមន៍មកកាន់គេហ័ទំព័រពាក្យរបស់បងប្ដូនជនជាតិកួយ",
-        "menue_text":{
-            "home":"ទំព័រដើម",
-            "words":"ពាក្យ",
-            "about_us":"អំពី",
-            "faqs":"សំណួរ",
-            "english":"អង្គគ្លេស",
-            "khmer":"ខ្មែរ"
-        },
-        "alphabeted":"អក្ខរក្រម"
+"header":{
+    "message":"សូមស្វគមន៍មកកាន់គេហ័ទំព័ររៀនកួយ",
+    "menue_text":{
+        "home":"ទំព័រដើម",
+        "words":"ពាក្យកួយ",
+        "about_us":"អំពី",
+        "faqs":"សំណួរ",
+        "english":"អង្គគ្លេស",
+        "khmer":"ខ្មែរ"
     },
+    "alphabeted":"អក្ខរក្រម"
+},
 
     "homePage": {
       "mape": {
@@ -26,7 +26,7 @@
         "enter_message":"សរសេរសារផ្សេងៗនៅទីនេះ",
         "submit":"បញ្ជូន"
       },
-        "search":"ស្វែងរក",
+      "search":"ស្វែងរក",
         "no_result":"គ្មានលទ្ធផល",
         "words":"ពាក្យ",
         "word":"ពាក្យ",
@@ -48,6 +48,7 @@
         "category":"ប្រភេទ",
         "filter": "តម្រង",
         "community": "សហគមន៍",
+        "community_content":"Kui community, also known as Kuoy or Kuay, primarily live in northern and northeastern Cambodia, in provinces like Preah Vihear, Stung Treng, and Kampong Thom",
         "explore":"រុករក",
         "our":"របស់យើង",
         "email" : "អ៊ីមែល",
@@ -63,21 +64,21 @@
         "kui_atreu": "កួយអ្ទ្រើ",
        "kui_at": "កួយ​អ្ទ័",
         "content": {
-            "home_about": "Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis nisl aliquip ex ea commodo n ullamcorper suscipit loborti excommodo Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti",
-            "home_community": "Molestie nunc non blandit massa. Lacus sed viverra tellus in hac habitasse platea. Velit egestas dui id ornare arcu. Sapien pellentesque habitant morbi tristique senectus et netus. Ut consequat semper viverra nam libero. Convallis aenean et tortor",
-            "home_email_us": "If you have any concern or want to support us!"
+            "home_about": "ជនជាតិកួយ ត្រូវបានគេស្គាល់ថាគឺជាក្រុមជនជាតិដើមភាគតិចមួយរបស់ប្រទេសកម្ពុជា ដែលរស់នៅជាចម្បងនៅតំបន់ភាគខាងជើង និងភាគឦសាននៃប្រទេស។ ជាមួយនឹងប្រវត្តិសាស្ត្រដែលលាតសន្ធឹងរាប់សតវត្ស សហគមន៍កួយ ត្រូវបានគេស្គាល់ថាមានទំនាក់ទំនងយ៉ាងស៊ីជម្រៅជាមួយដី ទំនៀមទម្លាប់កសិកម្មប្រពៃណី និងការបង្ហាញវប្បធម៌ប្លែកៗ រួមទាំងភាសារស់រវើករបស់ពួកគេ។",
+            "home_community": "សហគមន៍កួយ ភាគច្រើនរស់នៅភាគខាងជើង និងឦសាននៃប្រទេសកម្ពុជា នៅក្នុងខេត្តដូចជាព្រះវិហារ ស្ទឹងត្រែង និងកំពង់ធំ",
+            "home_email_us": "ប្រសិនបើអ្នកមានចម្ងល់អ្វីបន្ថែមសូមអ៊ីម៉ែលមកកាន់ពួកយើង"
         }
       },
 
       "wordPage": {
-        "header": "Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
+        "header": "Welcome to the Kui Words Alphabeted, your gateway to exploring the unique and vibrant language of the Kui people. Here, you'll find a comprehensive collection of Kui words along with their meanings and pronunciations. This section aims to preserve and promote the Kui language, offering resources for language learners and enthusiasts. Dive in and discover the beauty of the Kui language through carefully curated word lists and interactive language lessons",
         "english_pronunciation": "ការបញ្ចេញសំឡេងភាសាអង់គ្លេស"
       },
 
     "aboutPage":{
-            "about_kui_alphabeted":"អំពីគេហទំព័រអក្ខរក្រមកួយ", 
-            "lorem": "ឡូរ៉េម",
-            "lorem_explain": "khmer Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit lobort Exerci tation ullamcorper suscipit lobortis nisl aliquip",
+            "about_kui_alphabeted":"អំពីគេហទំព័រអក្សរក្រមកួយ", 
+            "lorem": "គោលបំណង",
+            "lorem_explain": "មុខងារអក្សរក្រមកួយ ត្រូវបានរចនាឡើងជាមួយនឹងបេសកកម្មក្នុងការថែរក្សា ផ្សព្វផ្សាយ និងធ្វើឱ្យភាសាកួយ មានអ្នកស្គាល់ឱ្យកាន់តែច្រើនឡើងវិញ ដែលជាធាតុផ្សំដែលមិនអាចកាត់ថ្លៃបាននៃបេតិកភណ្ឌវប្បធម៌របស់យើង",
             "list":{
             "we_are_award_winning_company":"khmer We are Award Winning Company",
             "refreshing_to_get_such_a_personal_touch":"khmer Refreshing to get such a personal touch",
@@ -87,15 +88,15 @@
         "change_the_way_content":"Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis",
         "our_mission": "បេសកកម្ម",
         "our_vision": "ចក្ខុវិស័យ",
-        "our_history": "ប្រវត្តិរបស់យើង",
+        "core_value": "Core value",
         "our_goal": "គោលដៅរបស់យើង"
     },
      
     "faqsPage":{
         "faqs": "សំណួរទូទៅ",
-        "fa_explain_content":"Frequently Asked question about us",
+        "fa_explain_content":"សំណួរដែលតែងតែមានអ្នកសួរមកកាន់ពួកយើង",
         "some_answered_about_our_organization":"សំណួរមួយចំនួនអំពីយើង",
-        "explain_content": "khmer Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" 
+        "explain_content": "សូមស្វាគមន៍មកកាន់ផ្នែកសំណួរ-ចម្លើយ ដែលជាកន្លែងដែលយើងឆ្លើយសំណួរទូទៅអំពីប្រជាជនកួយ ភាសារបស់ពួកយើង និងគេហទំព័ររបស់យើង" 
       },
     "Footer":{
         "OUR_ORGANIZATION": "អំពីអង្គការ​",         

@@ -27,10 +27,10 @@ const Footer = () => {
                         </div>
                         <div className="tpfooter__social">
                             <a href="#"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#"><i className="fab fa-twitter"></i></a>
-                            <a href="#"><i className="fab fa-behance"></i></a>
+                            {/* <a href="#"><i className="fab fa-twitter"></i></a>
+                            <a href="#"><i className="fab fa-behance"></i></a> */}
                             <a href="#"><i className="fab fa-youtube"></i></a>
-                            <a href="#"><i className="fab fa-linkedin"></i></a>
+                            {/* <a href="#"><i className="fab fa-linkedin"></i></a> */}
                         </div>
                         </div>
                     </div>
@@ -57,7 +57,16 @@ const Footer = () => {
                             </div>
                             <div className="tp-footer-widget__list">                             
                                 <ul>
-                                    <li><a href="#"><img src={require("../../assets/img/footer/pngegg_1.png")} /></a></li>
+                                    <li>
+                                     <a href="https://apps.apple.com/us/app/kui-dictionary/id6503658958">
+                                      <img src={require("../../assets/img/footer/app_store.png")} className=" w-48 sm:w-auto" />
+                                     </a>
+                                    </li>
+                                    <li>
+                                     <a href="https://play.google.com/store/apps/details?id=com.alphabet.kouy.alphabet_kouy">
+                                      <img src={require("../../assets/img/footer/play_store.png")} className="w-48 sm:w-auto" />
+                                     </a>
+                                    </li>
                                     {/* <li><a href="#">Home Insurance</a></li> */}
                                 </ul>
                             </div>

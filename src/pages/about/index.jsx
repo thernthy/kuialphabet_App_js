@@ -23,7 +23,7 @@ export const About = () => {
                 </div>
             </section>
             <LearnSection t={t} />
-            <AboutSection t={t} />
+            {/* <AboutSection t={t} /> */}
             <Messing t={t} />
         </>
     )

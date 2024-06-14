@@ -17,7 +17,15 @@ const Home = () => {
             {/* supporter section start */}
             <div className="album py-5 bg-body-tertiary">
                 <div className="px-3">
-                    <ul className="flex flex-row items-center justify-around p-0">
+                    <ul className="flex flex-row items-center  flex-wrap sm:flex-nowrap justify-around p-0">
+                        <li className="text-center">
+                            <h4 className="capitalize">{t("homePage.deploy project")}</h4>
+                            <ul className="flex flex-row items-center justify-around p-0">
+                                <li>
+                                    <img src={Supporters.Company} alt="" className="h-20" />
+                                </li>
+                            </ul>
+                        </li>
                         <li className="text-center">
                             <h4 className=" capitalize">{t('homePage.sponsor')}</h4>
                             <ul className="flex flex-row items-center justify-around p-0">
@@ -40,14 +48,6 @@ const Home = () => {
                                 </li>
                                 <li>
                                     <img src={Supporters.Kuipedia} alt="" />
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="text-center">
-                            <h4 className="capitalize">{t("homePage.deploy project")}</h4>
-                            <ul className="flex flex-row items-center justify-around p-0">
-                                <li>
-                                    <img src={Supporters.Company} alt="" className="h-20" />
                                 </li>
                             </ul>
                         </li>
@@ -79,8 +79,8 @@ const Home = () => {
                                     quat.Exerci tation ullamcorper suscipit loborti </p>
                             </div>
                             <div className="tp-about-button-box d-flex align-items-center mb-6">
-                                <Link className="tp-btn tp-ab-button-one caption-top" to={"/about us"}>{t('homePage.about')} {t('homePage.us')}</Link>
-                                <Link className="tp-ab-play-button popup-video" to={"https://www.youtube.com/watch?v=PfPP5ac_aQo"}><i class="fas fa-play"></i></Link>
+                                <Link  className="tp-btn no-underline tp-ab-button-one caption-top" to={"/about us"}>{t('homePage.about')} {t('homePage.us')}</Link>
+                                <Link style={{background:"#11BA99"}} className="tp-ab-play-button popup-video" to={"https://www.youtube.com/watch?v=PfPP5ac_aQo"}><i class="fas fa-play"></i></Link>
                             </div>
                         </div>
                         </div>
