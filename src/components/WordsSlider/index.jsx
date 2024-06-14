@@ -7,11 +7,8 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons/faVolumeHigh';
-import avatorOne from '../../pages/words/assets/avator1.svg'
 import { faBook, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { SelectedCategory } from './db/seleted_category';
 import { PrimeryColor } from '../CategoryCart';
-import { CategoryLogo } from '../../assets/img/category_logo/rander';
 import {useHookWordSlider} from '../../hooks/WordSlider'
 import { useTranslation } from 'react-i18next';
 import { useCategory } from '../../hooks/hookCategories';
@@ -167,18 +164,11 @@ const { data: categoryData } = useCategory();
         disableOnInteraction: false,
       }}
       loop={true}
+      slidesPerView={1}
       breakpoints={{
-        900: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
-        450: {
+        1025: {
           slidesPerView: 2,
             spaceBetween: 10,
-        },
-        440: {
-          slidesPerView: 1,
-          spaceBetween: 10,
         },
       }}
       className="mySwiper"
