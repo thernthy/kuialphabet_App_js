@@ -22,14 +22,17 @@ const ContactForm = ({ t }) => {
         //setIsSubmitting(true);
         //setError(null);
         try {
-            const response = await fetch('/contact/email', {
+            const response = await fetch(`${process.env.REACT_APP_BASED_URL}api/contact/email`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'api_key':`$2y$10$7WvBGNDjnaXVj6lVN./AguQjkLHoSO3.nMR1Rxvdi8iiRWaa9sP9K`
                 },
                 body: JSON.stringify(formData)
             });
-
+            console.log(response)
+            if(response.status === 200){
+            }
             if (!response.ok) {
                 //throw new Error('Network response was not ok');
             }

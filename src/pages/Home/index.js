@@ -66,17 +66,11 @@ const Home = () => {
                         <div className="col-xl-6 col-lg-6 ">
                             <div className="tp-about-section-box ">
                                 <h4 className="tp-section-subtitle">{t('homePage.about')} {t('homePage.us')}</h4>
-                                <h3 className="tp-section-title pb-20 capitalize">{t('homePage.change the way but life insurance')}
+                                <h3 className="tp-section-title pb-5 capitalize">{t('homePage.change the way but life insurance')}
                                     {/* <span>
                                     <br/> life Insurance</span> */}
                                 </h3>
-                                <p className="paragraph-one">Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo
-                                    claritatem insitamconse
-                                    quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse
-                                    quat.Exerci tationlobortis nisl aliquip ex ea commodo
-                                    n ullamcorper suscipit loborti excommodo</p>
-                                <p>Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse
-                                    quat.Exerci tation ullamcorper suscipit loborti </p>
+                                <p className="paragraph-one">{t("homePage.home_about")}</p>
                             </div>
                             <div className="tp-about-button-box d-flex align-items-center mb-6">
                                 <Link  className="tp-btn no-underline tp-ab-button-one caption-top" to={"/about us"}>{t('homePage.about')} {t('homePage.us')}</Link>

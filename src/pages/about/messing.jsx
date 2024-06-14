@@ -44,10 +44,9 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6 col-lg-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">Mission</h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.mission_title")}</h4>
                                 <p>
-                                 Organize communities and develop systems of indigenous Kui communities 
-                                 to create Kui ethnic pride, protect community interests and be self-sufficient.
+                                 {t("aboutPage.our_mession_content")}
                                 </p>
                              </div>
                              {/* <div className="tpmission__list">
@@ -71,10 +70,9 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">Vision </h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.vision_title")}</h4>
                                 <p>
-                                Indigenous Communities are strong solidarity 
-                                and have the right to self-determination for sustainable development and conservation.
+                                  {t("aboutPage.our_vision_content")}
                                 </p>
                              </div>
                              {/* <div className="tpmission__list">
@@ -98,13 +96,13 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">Core Value</h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.core_value")}</h4>
                                 <div className="tpmission__list">
                                  <ul>
-                                    <li><i className="fal fa-check"></i>mote the knowledge and culture of the Kui indigenous people</li>
-                                    <li><i className="fal fa-check"></i>Common interests of the community</li>
-                                    <li><i className="fal fa-check"></i>Initiatives and teamwork</li>
-                                    <li><i className="fal fa-check"></i>Focus on indigenous peoples and the vulnerable</li>
+                                    <li><i className="fal fa-check"></i>{t("aboutPage.core_value_content.list_1")}</li>
+                                    <li><i className="fal fa-check"></i>{t("aboutPage.core_value_content.list_2")}</li>
+                                    <li><i className="fal fa-check"></i>{t("aboutPage.core_value_content.list_3")}</li>
+                                    <li><i className="fal fa-check"></i>{t("aboutPage.core_value_content.list_4")}</li>
                                  </ul>
                                 </div>
                              </div>
@@ -122,11 +120,9 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">Goal</h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.goal")}</h4>
                                 <p>
-                                 Indigenous Kui men, women, elders, youths, 
-                                 and children have solidarity and participate in land and natural resources management, 
-                                 conservation of identity and culture, and socio/economic development.
+                                 {t("aboutPage.our_goal_content")}
                                 </p>
                              </div>
                           </div>
@@ -143,20 +139,21 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">We work with</h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.We_work_with.title")}</h4>
                                 <p>
-                                 Our strategies and programs relevant for work with diverse groups, both directly and in partnerships, including: 
+                                {t("aboutPage.We_work_with.content")}
                                 </p>
                              </div>
                              <div className="tpmission__list">
-                                <ul>
-                                   <li><i className="fal fa-check"></i>Indigenous Peoples Communities (IP commuity);</li>
-                                   <li><i className="fal fa-check"></i>Sub-national administrations and institutions and departments of the government</li>
-                                   <li><i className="fal fa-check"></i>Civil society organizations (CSOs);</li>
-                                   <li><i className="fal fa-check"></i>Indigeous Peoples Organizations;</li>
-                                   <li><i className="fal fa-check"></i>Private sectors.</li>
-                                   <li><i className="fal fa-check"></i>Development Partners (includes UN agencies and embassies)</li>
-                                </ul>
+                                 <ul>
+                                  {Array.from({ length: 6 }, (_, i) => (
+                                          <li key={i}>
+                                             <i className="fal fa-check"></i>
+                                             {t(`aboutPage.We_work_with.list_${i+1}`)}
+                                          </li>
+                                    ))
+                                  }
+                                 </ul>
                              </div>
                           </div>
                        </div>
@@ -172,16 +169,17 @@ export const Messing = ({t}) => {
                        <div className="col-xl-6">
                           <div className="tpmission">
                              <div className="tpmission__info">
-                                <h4 className="tp-mission-title">Our Unique</h4>
+                                <h4 className="tp-mission-title">{t("aboutPage.our_unique.title")}</h4>
                               <div className="tpmission__list">
-                                 <ul>
-                                    <li><i className="fal fa-check"></i>The only indigenous Kui led-organization in Cambodia</li>
-                                    <li><i className="fal fa-check"></i>Focus on indigenous Kui</li>
-                                    <li><i className="fal fa-check"></i>Indigenous Kui for indigenous Kui</li>
-                                    <li><i className="fal fa-check"></i>Understanding about indigenous Kui</li>
-                                    <li><i className="fal fa-check"></i>Experiences work with indigenous Kui</li>
-                                    <li><i className="fal fa-check"></i>Always Work With Energetic Team</li>
-                                 </ul>
+                               <ul>
+                                  {Array.from({ length: 6 }, (_, i) => (
+                                          <li key={i}>
+                                             <i className="fal fa-check"></i>
+                                             {t(`aboutPage.our_unique.list_${i+1}`)}
+                                          </li>
+                                    ))
+                                  }
+                                </ul>
                               </div>
                              </div>
                           </div>

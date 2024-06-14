@@ -55,6 +55,7 @@
       "community_content":"Kui community, also known as Kuoy or Kuay, primarily live in northern and northeastern Cambodia, in provinces like Preah Vihear, Stung Treng, and Kampong Thom",
       "explore": "explore",
       "our":"our",
+      
       "email" : "email",
       "team":"team",
       "insurance": "insurance",
@@ -67,8 +68,8 @@
       "all":"all",
       "kui_atreu": "kui atreu",
       "kui_at": "kui a t",
+      "home_about": "The Kui, also known as the Kuoy or Kuay, are one of the indigenous ethnic groups of Cambodia, primarily residing in the northern and northeastern regions of the country. With a history that spans centuries, the Kui community is known for their deep connection to the land, traditional farming practices, and unique cultural expressions, including their vibrant language.",
       "content": {
-        "home_about": "The Kui, also known as the Kuoy or Kuay, are one of the indigenous ethnic groups of Cambodia, primarily residing in the northern and northeastern regions of the country. With a history that spans centuries, the Kui community is known for their deep connection to the land, traditional farming practices, and unique cultural expressions, including their vibrant language.",
         "home_community": "Kui community, also known as Kuoy or Kuay, primarily live in northern and northeastern Cambodia, in provinces like Preah Vihear, Stung Treng, and Kampong Thom",
         "home_email_us": "If you have any concern or want to support us!"
       }
@@ -92,11 +93,47 @@
         "easy_and_first_process":"Easy and first process"
       },
       "change_the_way_but_life_insurance":"Change the way but life Insurance",
+
       "change_the_way_content":"Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo claritatem insitamconse quat.Exerci tation ullamcorper suscipit loborti excommodo habent claritatem insitamconse quat.Exerci tationlobortis",
       "our_mission": "our mission",
+      "mission_title":"Mission",
+      "our_mession_content":"Organize communities and develop systems of indigenous Kui communities to create Kui ethnic pride, protect community interests and be self-sufficient.",
+
       "our_vision": "our vision",
+      "vision_title":"Vision",
+      "our_vision_content":"Indigenous Communities are strong solidarity and have the right to self-determination for sustainable development and conservation.",
+
       "core_value": "Core value",
-      "our_goal": "our goal"
+      "core_value_content":{
+        "list_1":"mote the knowledge and culture of the Kui indigenous people",
+        "list_2":"Common interests of the community",
+        "list_3":"Initiatives and teamwork",
+        "list_4":"Focus on indigenous peoples and the vulnerable"
+      },
+
+      "our_goal": "Our Goal",
+      "goal":"Goal",
+      "our_goal_content": "Indigenous Kui men, women, elders, youths, and children have solidarity and participate in land and natural resources management, conservation of identity and culture, and socio/economic development.",
+
+      "We_work_with":{
+        "title":"We work with",
+        "content":"Our strategies and programs relevant for work with diverse groups, both directly and in partnerships, including:",
+        "list_1":"Indigenous Peoples Communities (IP commuity).",
+        "list_2":"Sub-national administrations and institutions and departments of the government.",
+        "list_3":"Civil society organizations (CSOs).",
+        "list_4":"Indigeous Peoples Organizations.",
+        "list_5":"Private sectors.",
+        "list_6":"Development Partners (includes UN agencies and embassies)."
+      },
+      "our_unique":{
+        "title":"Our Unique",
+        "list_1":"The only indigenous Kui led-organization in Cambodia",
+        "list_2":"Focus on indigenous Kui",
+        "list_3":"Indigenous Kui for indigenous Kui",
+        "list_4":"Understanding about indigenous Kui",
+        "list_5":"Experiences work with indigenous Kui",
+        "list_6":"Always Work With Energetic Team"
+      }
     },
 
     "faqsPage":{
