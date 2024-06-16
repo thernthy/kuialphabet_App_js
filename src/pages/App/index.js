@@ -45,7 +45,10 @@ const App = () => {
 
 
   const handleModleMenue = () => {
-    setModleMenu(!modleMenu);
+    setModleMenu(false);
+  };
+  const handleModleMenueShow = () => {
+    setModleMenu(true);
   };
 
   const handleClickOutside = (event) => {
@@ -172,7 +175,7 @@ const App = () => {
                                   </ul>
                                 }
                             </div>
-                            <div className="tp-toggle-bar d-lg-none" ref={menuRef} onClick={handleModleMenue}>
+                            <div className="tp-toggle-bar d-lg-none" ref={menuRef} onClick={handleModleMenueShow}>
                                 <i className="fas fa-bars px-2 bg-blue-600 py-2 ml-2 text-white" ></i>
                             </div>
                           </div>
@@ -182,11 +185,11 @@ const App = () => {
               </div>
               <div className="tp-offcanvas-area d-lg-none">
               <div className={`tpoffcanvas ${modleMenu? 'opened':''}`} style={{backgroundImage: `url(${require("../../assets/img/menue_icon/slider-shape-3-1.png")})`}}>
-                <div className="tpoffcanvas__close-btn mb-4" ref={menuRef} onClick={handleModleMenue}>
-                    <button className="close-btn" ><i className="fal fa-times"></i></button>
+                <div className="tpoffcanvas__close-btn mb-4">
+                    <button className="px-3" onClick={handleModleMenue}><i className="fal fa-times" ></i></button>
                 </div>
                 <div className="tpoffcanvas__logo">
-                    <a href="index.html">
+                    <a href="/">
                       <img src={CompanyLogo} alt=""/>
                     </a>
                 </div>
@@ -214,20 +217,20 @@ const App = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="tpoffcanvas__content">
+                    {/* <div className="tpoffcanvas__content">
                       <span>Ready to work with us?</span>
                       <a href="mailto:Edeningmail@gmail.com">insurea@gmail.com</a>
                       <p className="d-none d-lg-block">Eidan theme comes with everything you need to create the perfect website for all your business
                           endeavors.</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="tpoffcanvas__social">
-                    <h4 className="offcan-social-title">Follow Us</h4>
+                    {/* <h4 className="offcan-social-title">Follow Us</h4> */}
                     <div className="social-icon">
                       {/* <a href="#"><i className="fab fa-twitter"></i></a> */}
-                      <a href="#"><i className="fab fa-instagram"></i></a>
+                      {/* <a href="#"><i className="fab fa-instagram"></i></a>
                       <a href="#"><i className="fab fa-facebook-square"></i></a>
-                      <a href="#"><i className="fab fa-youtube"></i></a>
+                      <a href="#"><i className="fab fa-youtube"></i></a> */}
                       {/* <a href="#"><i className="fab fa-dribbble"></i></a> */}
                     </div>
                 </div>

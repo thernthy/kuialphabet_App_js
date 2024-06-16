@@ -43,11 +43,11 @@ const { data: categoryData } = useCategory();
                         <div className='pt-2 w-full'>
                             <div className='flex flex-row items-center justify-start gap-2 columns-1'>
                                 <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} />
-                                <h4 className='text-sm truncate ' style={{color:'#106FBB'}}>កួយន្ទ័រ {data?.kui_1} /{data?.english_pronunciation}/</h4>
+                                <h4 className='text-sm truncate ' style={{color:'#106FBB'}}>កួយន្ទ័រ {data?.kui_1}</h4>
                             </div>
                             <div className='flex flex-row items-center justify-start gap-2 '>
                                 <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} />
-                                <h4 className='text-sm' style={{color:'#106FBB'}}>ភាសាកួយអ្ទ្រើ {data?.kui_2} /{data?.english_pronunciation}/</h4>
+                                <h4 className='text-sm' style={{color:'#106FBB'}}>ភាសាកួយអ្ទ្រើ {data?.kui_2}</h4>
                             </div>
                             <div className='flex flex-row items-start justify-start gap-1 '>
                                 <div>
@@ -76,35 +76,33 @@ const { data: categoryData } = useCategory();
                             </div>
                             <div className='flex flex-row items-start justify-start gap-2 flex-wrap lg:flex-nowrap '>
                                 <div className='text-center'>
-                                    <span className='font-bold text-sm'>commend used</span>
+                                    <span className='font-bold text-sm'>{t("wordPage.common_used")}</span>
                                     <div className="flex flex-row items-center justify-start gap-1">
-                                        {data?.comment_use === 25 &&
-                                         <span className=" bg-red-400 px-2 rounded-full py-1"></span>
+                                        {data.comment_use <= 25 ?
+                                         <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>:''
                                         }
-                                        {data?.comment_use === 50 &&
+                                        {data.comment_use > 25 && data.comment_use <=50?
                                             <>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
+                                            </>:''
                                         }
-                                        {data?.comment_use === 75&&
-                                            <>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
-                                        }
-                                        {data?.comment_use === 100&&
+                                        {data.comment_use > 50 && data.comment_use <= 75?
                                             <>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
+                                            </>:''
                                         }
-                                        {data?.comment_use === null ||  data.comment_use === 0 &&
-                                            <span className=" bg-red-400 px-2 rounded-full py-1"></span>
+                                        {data.comment_use > 75 && data.comment_use <= 100?
+                                            <>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                            </>:''
                                         }
-                                        
+
                                     </div>
                                 </div>
                                 <div className='text-center'>

@@ -11,13 +11,13 @@ export const AboutContent  = ({t}) => {
                     <p className="paragraph-space-1">{t("aboutPage.lorem_explain")}</p>
                     </div>
                 </div>
-                <div className="tp-about-list">
+                {/* <div className="tp-about-list">
                     <ul>
                         <li><i className="fal fa-check"></i>{t("aboutPage.list.we_are_award_winning_company")}</li>
                         <li><i className="fal fa-check"></i>{t("aboutPage.list.refreshing_to_get_such_a_personal_touch")}</li>
                         <li><i className="fal fa-check"></i>{t("aboutPage.list.easy_and_first_process")}</li>
                     </ul>
-                </div>
+                </div> */}
             </div>
             <div className="col-xl-6 col-lg-6">
                 <div className="about-me-img p-relative">

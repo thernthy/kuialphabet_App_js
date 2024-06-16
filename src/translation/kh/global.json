@@ -72,7 +72,8 @@
 
       "wordPage": {
         "header": "Welcome to the Kui Words Alphabeted, your gateway to exploring the unique and vibrant language of the Kui people. Here, you'll find a comprehensive collection of Kui words along with their meanings and pronunciations. This section aims to preserve and promote the Kui language, offering resources for language learners and enthusiasts. Dive in and discover the beauty of the Kui language through carefully curated word lists and interactive language lessons",
-        "english_pronunciation": "ការបញ្ចេញសំឡេងភាសាអង់គ្លេស"
+        "english_pronunciation": "ការបញ្ចេញសំឡេងភាសាអង់គ្លេស",
+        "common_used":"ប្រើទូទៅ"
       },
 
     "aboutPage":{

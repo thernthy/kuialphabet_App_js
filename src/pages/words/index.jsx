@@ -91,31 +91,32 @@ const Words = () => {
                             </div>
                             <div className="flex flex-row items-center justify-start gap-2">
                                 <div>
-                                    <span className="text-xs">commend used</span>
+                                    <span className="text-xs">{t("wordPage.common_used")}</span>
                                     <div className="flex flex-row items-center justify-start gap-1">
-                                        {word.comment_use === 25 &&
-                                         <span className=" bg-red-400 px-2 rounded-full py-1"></span>
+                                        {word.comment_use <= 25 ?
+                                         <span className="  px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>:''
                                         }
-                                        {word.comment_use === 50 &&
+                                        {word.comment_use > 25 && word.comment_use <=50?
                                             <>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
+                                            </>:''
                                         }
-                                        {word.comment_use === 75&&
-                                            <>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
-                                        }
-                                        {word.comment_use === 100&&
+                                        {word.comment_use > 50 && word.comment_use <= 75?
                                             <>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
-                                            </>
+                                            </>:''
                                         }
+                                        {word.comment_use > 75 && word.comment_use <= 100?
+                                            <>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                            </>:''
+                                        }
+
                                     </div>
                                 </div>
                                 <button onClick={()=>HandleExplanation(word.id)}
@@ -216,7 +217,7 @@ const Words = () => {
                        }
                     </select>
                 </div>
-                <div className="flex flex-col items-start justify-around gap-3">
+                {/* <div className="flex flex-col items-start justify-around gap-3">
                     <span className=" capitalize"><b>{t("homePage.filter")} {t("header.alphabeted")} ({t("header.menue_text.english")})</b></span>
                     <select onChange={ (value)=>haleEnAlphabetSelection(value) }
                     className=" 
@@ -264,7 +265,7 @@ const Words = () => {
                             })
                         }
                     </select>
-                </div>
+                </div> */}
             </div>
            { randerWords() }
           </div>

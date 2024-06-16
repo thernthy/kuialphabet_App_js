@@ -17,8 +17,8 @@ const Footer = () => {
                     <div className="col-xl-12">
                         <div className="tpfooter d-flex justify-content-between align-items-center">
                         <div className="tpfooter__logo flex flex-row  items-start gap-2">
-                            <a href="index.html">
-                                <img src={Supporters.Company} alt={Supporters.Company} className="h-12 rounded-full bg-white"/>
+                            <a href="/">
+                                <img src={Supporters.Company} alt={Supporters.Company} className="w-12 sm:w-auto h-12 rounded-full bg-white"/>
                             </a> 
                             <div>
                                 <h6 className="text-white">KUI Alphabeted</h6>

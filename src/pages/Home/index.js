@@ -22,7 +22,7 @@ const Home = () => {
                             <h4 className="capitalize">{t("homePage.deploy project")}</h4>
                             <ul className="flex flex-row items-center justify-around p-0">
                                 <li>
-                                    <img src={Supporters.Company} alt="" className="h-20" />
+                                    <img src={Supporters.Company} alt="" className="w-20 sm:w-auto h-20" />
                                 </li>
                             </ul>
                         </li>
