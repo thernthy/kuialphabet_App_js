@@ -12,6 +12,7 @@ import { PrimeryColor } from '../CategoryCart';
 import {useHookWordSlider} from '../../hooks/WordSlider'
 import { useTranslation } from 'react-i18next';
 import { useCategory } from '../../hooks/hookCategories';
+import { Link } from 'react-router-dom';
 export default function WordsPopUpSlider({HandleExplanation, setIsExplanetion}) {
 const { t, i18n } = useTranslation("global");
 const { data: categoryData } = useCategory();
@@ -42,12 +43,12 @@ const { data: categoryData } = useCategory();
                         <img src={`${process.env.REACT_APP_BASED_URL}storage/${data?.cover_photo}`} className='w-40'/>
                         <div className='pt-2 w-full'>
                             <div className='flex flex-row items-center justify-start gap-2 columns-1'>
-                                <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} />
-                                <h4 className='text-sm truncate ' style={{color:'#106FBB'}}>កួយន្ទ័រ {data?.kui_1}</h4>
+                                {/* <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} /> */}
+                                <h4 className='text-sm truncate ' style={{color:'#106FBB'}}>{t("homePage.kui_ator")} {data?.kui_1}</h4>
                             </div>
                             <div className='flex flex-row items-center justify-start gap-2 '>
-                                <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} />
-                                <h4 className='text-sm' style={{color:'#106FBB'}}>ភាសាកួយអ្ទ្រើ {data?.kui_2}</h4>
+                                {/* <FontAwesomeIcon icon={faVolumeHigh} className='text-sm' style={{color:'#106FBB'}} /> */}
+                                <h4 className='text-sm' style={{color:'#106FBB'}}>{t("homePage.kui_atreur")} {data?.kui_2}</h4>
                             </div>
                             <div className='flex flex-row items-start justify-start gap-1 '>
                                 <div>
@@ -64,14 +65,19 @@ const { data: categoryData } = useCategory();
                                         </span>
                                         {t("homePage.explanation")}
                                 </button>
-                                <button className='py-1 pr-1 pl-2  capitalize
-                                        rounded-full bg-red-400 text-white flex flex-row items-center justify-start gap-2
-                                        ' style={{fontSize:"16px"}}>
-                                        <span>
-                                            <FontAwesomeIcon icon={faPlay} />
-                                        </span>
-                                        Video
-                                </button>
+                                {data?.video_url?
+
+                                    <button className='py-1 pr-1 pl-2  capitalize
+                                            rounded-full bg-red-400 text-white flex flex-row items-center justify-start gap-2
+                                            ' style={{fontSize:"16px"}}>
+                                            <a href={data?.video_url} target="_blank" className=' no-underline text-white' rel="noopener noreferrer">
+                                                <span>
+                                                    <FontAwesomeIcon icon={faPlay} />
+                                                </span>
+                                                Video
+                                            </a>
+                                    </button>:""
+                                }
                                 
                             </div>
                             <div className='flex flex-row items-start justify-start gap-2 flex-wrap lg:flex-nowrap '>

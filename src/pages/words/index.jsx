@@ -114,6 +114,7 @@ const Words = () => {
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                                 <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
+                                                <span className="px-2 rounded-full py-1" style={{ backgroundColor: '#106FBB' }}></span>
                                             </>:''
                                         }
 

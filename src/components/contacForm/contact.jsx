@@ -30,8 +30,11 @@ const ContactForm = ({ t }) => {
                 },
                 body: JSON.stringify(formData)
             });
-            console.log(response)
+            //console.log(response)
             if(response.status === 200){
+               
+                    alert("Email sent successfully.")
+                
             }
             if (!response.ok) {
                 //throw new Error('Network response was not ok');
